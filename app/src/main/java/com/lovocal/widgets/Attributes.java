@@ -13,7 +13,7 @@ public class Attributes {
     public static int INVALID = -1;
 
     public static int DEFAULT_THEME = R.array.sand;
-    public static int DEFAULT_EDITTEXT_THEME = R.array.dark;
+    public static int DEFAULT_EDITTEXT_THEME = R.array.deep;
     public static int DEFAULT_TEXT_THEME = R.array.dark;
 
     public static final String DEFAULT_FONT_FAMILY = "roboto";

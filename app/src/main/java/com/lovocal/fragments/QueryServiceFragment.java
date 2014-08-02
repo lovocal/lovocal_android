@@ -22,6 +22,7 @@ import com.lovocal.bus.SlidePanelUpdate;
 import com.lovocal.chat.ChatService;
 import com.lovocal.retromodels.request.SendBroadcastChatRequestModel;
 import com.lovocal.utils.AppConstants;
+import com.lovocal.widgets.views.FlatButton;
 import com.squareup.otto.Subscribe;
 
 import java.text.SimpleDateFormat;
@@ -47,7 +48,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
     private SimpleDateFormat mFormatter;
 
-    private TextView        mPanelHeader;
+    private FlatButton mPanelHeader;
 
     /**
      * holds the category id
@@ -92,7 +93,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
         //removed for now
 //        // load the ChatsFragment
 //            final ChatsFragment chatFragment = new ChatsFragment();
-//
+//s
 //            getChildFragmentManager()
 //                    .beginTransaction()
 //                    .replace(R.id.content_chat_details, chatFragment, AppConstants.FragmentTags.CHAT_DETAILS)
@@ -101,7 +102,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         mFormatter = new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.getDefault());
 
-        mPanelHeader=(TextView)contentView.findViewById(R.id.panel_header);
+        mPanelHeader=(FlatButton)contentView.findViewById(R.id.panel_header);
 
         mEditQuery=(EditText)contentView.findViewById(R.id.edit_query);
         mBroadcastButton=(Button)contentView.findViewById(R.id.button_broadcast);
@@ -125,9 +126,11 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     public void updatePanelOpen(SlidePanelUpdate update)
     {
         if(update.panelFlag) {
+            mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.deep));
             mPanelHeader.setText("Send A Broadcast Message");
         }
         else{
+            mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.sand));
             mPanelHeader.setText("Press me to write Query");
         }
     }

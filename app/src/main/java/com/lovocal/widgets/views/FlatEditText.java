@@ -62,7 +62,7 @@ public class FlatEditText extends EditText implements Attributes.AttributeChange
             attributes.setFontWeight(a.getString(R.styleable.FlatEditText_fontWeight));
             attributes.setFontExtension(a.getString(R.styleable.FlatEditText_fontExtension));
 
-            attributes.setTextAppearance(a.getInt(R.styleable.FlatEditText_textAppearance, Attributes.DEFAULT_TEXT_APPEARANCE));
+            attributes.setTextAppearance(a.getInt(R.styleable.FlatEditText_textAppearance, Attributes.DEFAULT_EDITTEXT_THEME));
             attributes.setRadius(a.getDimensionPixelSize(R.styleable.FlatEditText_cornerRadius, Attributes.DEFAULT_RADIUS_PX));
             attributes.setBorderWidth(a.getDimensionPixelSize(R.styleable.FlatEditText_borderWidth, Attributes.DEFAULT_BORDER_WIDTH_PX));
 

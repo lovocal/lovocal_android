@@ -17,23 +17,28 @@
         android:id="@+id/container_profile_info"
         android:orientation="horizontal">
 
-        <com.lovocal.widgets.views.FlatTextView
+        <com.lovocal.widgets.views.FlatButton
             android:layout_width="match_parent"
             android:layout_height="@dimen/profile_header_height"
             android:gravity="center"
-            android:textColor="@color/white"
-            flatui:customBackgroundColor="@color/dark_dark"
             android:text="@string/query_tap_message"
             android:textSize="20dp"
             android:id="@+id/panel_header" />
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_marginTop="@dimen/margin_huge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/activity_margin"
+            android:gravity="center" />
 
         <com.lovocal.widgets.views.FlatEditText
             android:id="@+id/edit_query"
@@ -59,12 +64,7 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="@dimen/activity_margin"
-        android:background="@color/sand_primary"
-        android:gravity="center" />
+
 
     <!--<com.lovocal.widgets.views.FlatTextView-->
         <!--android:layout_width="match_parent"-->
