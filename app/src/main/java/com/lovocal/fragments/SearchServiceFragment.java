@@ -153,7 +153,9 @@ public class SearchServiceFragment extends AbstractLavocalFragment implements Vi
     public void onPanelExpanded(View view) {
         //panel open post to QueryServiceFragment
         mPanelOpen=true;
-        mBus.post(new SlidePanelUpdate(true));
+        if(isAttached()) {
+            mBus.post(new SlidePanelUpdate(true));
+        }
     }
 
     @Override

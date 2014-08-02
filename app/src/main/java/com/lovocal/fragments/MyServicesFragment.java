@@ -189,7 +189,9 @@ public class MyServicesFragment extends AbstractLavocalFragment implements DBInt
                             .insertAsync(AppConstants.QueryTokens.INSERT_MY_SERVICES, getTaskTag(), null, TableMyServices.NAME, null, values, true, this);
 
                 }
-                loadServices();
+                if(isAttached()) {
+                    loadServices();
+                }
 
             }
 
