@@ -182,7 +182,7 @@ public class MyServicesFragment extends AbstractLavocalFragment implements DBInt
                                 .join(AppConstants.CATEGORY_SEPERATOR, tags));
                     }
                     if (mResponse.service_images.size() > 0) {
-                        values.put(DatabaseColumns.SERVICES_IMAGE, mResponse.service_images.get(0).getImage());
+                        values.put(DatabaseColumns.IMAGE, mResponse.service_images.get(0).getImage());
                     }
 
                     DBInterface

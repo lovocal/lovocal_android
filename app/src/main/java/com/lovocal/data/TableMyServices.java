@@ -27,7 +27,7 @@ public class TableMyServices {
                                 String.format(Locale.US, SQLConstants.DATA_INTEGER_PK, BaseColumns._ID),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.ID, ""),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.NAME, ""),
-                                String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.SERVICES_IMAGE, ""),
+                                String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.IMAGE, ""),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.MOBILE_NUMBER, ""),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.LATITUDE, ""),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.LONGITUDE, ""),

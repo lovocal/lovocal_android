@@ -36,6 +36,7 @@ public class ViewChatsWithMessagesAndUsers {
                         DatabaseColumns.CATEGORY_ID,
                         DatabaseColumns.SENDER_IMAGE,
                         DatabaseColumns.RECEIVER_IMAGE,
+                        DatabaseColumns.IMAGE,
                         DatabaseColumns.NAME,
                         DatabaseColumns.UNREAD_COUNT,
                         DatabaseColumns.MESSAGE,

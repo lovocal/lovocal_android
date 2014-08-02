@@ -102,9 +102,9 @@ public class ServicesListGridAdapter extends CursorAdapter {
         CircleImageView circleImageView=(CircleImageView) view.getTag(R.id.image_services);
 
 
-        if(!cursor.getString(cursor.getColumnIndex(DatabaseColumns.SERVICES_IMAGE)).equals("")) {
+        if(!cursor.getString(cursor.getColumnIndex(DatabaseColumns.IMAGE)).equals("")) {
             Picasso.with(context)
-                    .load(cursor.getString(cursor.getColumnIndex(DatabaseColumns.SERVICES_IMAGE)))
+                    .load(cursor.getString(cursor.getColumnIndex(DatabaseColumns.IMAGE)))
                     .resizeDimen(R.dimen.services_image_width, R.dimen.services_image_height)
                     .centerCrop().into(circleImageView.getTarget());
         }

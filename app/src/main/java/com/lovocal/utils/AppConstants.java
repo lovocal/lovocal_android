@@ -80,6 +80,7 @@ public class AppConstants {
         public static final String PANEL_OPEN = "panel_open";
         public static final String SERVICE_ID_ARRAY = "service_id_array";
         public static final String CATEGORY_ID_ARRAY = "category_id_array";
+        public static final String SERVICE_IMAGE = "service_image";
 
 
     }

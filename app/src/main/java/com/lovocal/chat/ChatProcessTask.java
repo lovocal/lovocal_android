@@ -425,6 +425,7 @@ class ChatProcessTask implements Runnable {
                         final ContentValues senderValue = new ContentValues(2);
                         senderValue.put(DatabaseColumns.ID, senderId);
                         senderValue.put(DatabaseColumns.NAME, senderName);
+                        senderValue.put(DatabaseColumns.IMAGE, senderImage);
                         final int updateUserCount = DBInterface
                                 .update(TableUsers.NAME, senderValue, USER_SELECTION, new String[]{
                                         senderId

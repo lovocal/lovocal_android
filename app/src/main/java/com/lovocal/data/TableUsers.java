@@ -25,6 +25,7 @@ public class TableUsers {
                         .join(SQLConstants.COMMA, new String[] {
                                 String.format(Locale.US, SQLConstants.DATA_INTEGER_PK, BaseColumns._ID),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.ID, ""),
+                                String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.IMAGE, ""),
                                 String.format(Locale.US, SQLConstants.DATA_TEXT, DatabaseColumns.NAME, "")
                         });
 

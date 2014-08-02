@@ -36,7 +36,7 @@ import retrofit.client.Response;
 /**
  * Created by anshul1235 on 15/07/14.
  */
-public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener,ServiceConnection
+public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener,ServiceConnection,Callback
 {
 
     private  EditText                   mEditQuery;
@@ -227,6 +227,10 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     @Override
     public void failure(RetrofitError error) {
         getActivity().setProgressBarIndeterminateVisibility(false);
+
+        //TODO no idea why retrofit is giving error on 200 success response in this call
+        //have to research
+        Toast.makeText(getActivity(),"Broadcast sent",Toast.LENGTH_SHORT).show();
 
     }
 

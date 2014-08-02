@@ -37,6 +37,8 @@ public class SearchServiceActivity extends AbstractDrawerActivity{
         String categoryName = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_NAME);
         String categoryId   = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_ID);
 
+        setActionBarTitle(categoryName);
+
         Bundle args= new Bundle(2);
         args.putString(AppConstants.Keys.CATEGORY_NAME,categoryName);
         args.putString(AppConstants.Keys.CATEGORY_ID,categoryId);

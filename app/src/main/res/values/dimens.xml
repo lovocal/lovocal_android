@@ -48,6 +48,8 @@
     <dimen name="text_x_large">24sp</dimen>
     <dimen name="text_xx_large">28sp</dimen>
 
+    <dimen name="query_edittext_above_margin">80dp</dimen>
+
 
     <dimen name="chats_item_height">80dp</dimen>
     <dimen name="chat_detail_image_size">50dp</dimen>

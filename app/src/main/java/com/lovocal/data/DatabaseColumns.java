@@ -16,7 +16,6 @@ public interface DatabaseColumns {
     public static final String CATEGORY_ID          = "category_id";
     public static final String CATEGORY_NAME        = "category_name";
     public static final String CATEGORY_IMAGE       = "category_image";
-    public static final String SERVICES_IMAGE       = "services_image";
     public static final String DESCRIPTION          = "description";
     public static final String MOBILE_NUMBER        = "mobile_number";
     public static final String LATITUDE             = "latitude";
@@ -50,6 +49,7 @@ public interface DatabaseColumns {
     public static final String SENDER_IMAGE         = "sender_image";
     public static final String RECEIVER_NAME        = "receiver_name";
     public static final String RECEIVER_IMAGE       = "receiver_image";
+    public static final String IMAGE                = "image";
 
     /**
      * Indicates the status of a chat message

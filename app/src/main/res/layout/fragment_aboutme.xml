@@ -73,6 +73,7 @@
 
                 <com.lovocal.widgets.views.FlatButton
                     android:id="@+id/button_edit_profile"
+                    android:layout_marginTop="@dimen/margin_xx_small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Edit Profile"

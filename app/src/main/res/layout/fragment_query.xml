@@ -29,16 +29,13 @@
 
 
     <LinearLayout
-        android:layout_marginTop="@dimen/margin_huge"
+        android:layout_marginTop="@dimen/query_edittext_above_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/activity_margin"
-            android:gravity="center" />
+
 
         <com.lovocal.widgets.views.FlatEditText
             android:id="@+id/edit_query"
