@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/global_bg"
+
     android:clickable="true"
     android:descendantFocusability="afterDescendants"
     android:focusable="true"
@@ -20,66 +21,70 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_header_height" >
+        android:layout_height="match_parent" >
 
 
-        <LinearLayout
-            android:id="@+id/container_profile_info"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:orientation="horizontal" >
 
-            <com.lovocal.widgets.CircleImageView
-                android:id="@+id/image_user"
-                android:layout_width="@dimen/user_image_size_profile"
-                android:layout_height="@dimen/user_image_size_profile"
-                android:layout_marginBottom="@dimen/margin_xx_small"
-                android:layout_marginLeft="@dimen/activity_margin"
-                android:layout_marginRight="@dimen/activity_margin"
-                android:layout_marginTop="@dimen/margin_xx_small"
-                android:contentDescription="@string/app_name"
-                android:gravity="center_vertical"
-                app:imageBorderColor="@color/sand_primary"
-                app:imageBorderWidth="2dp"
-                app:imageCornerRadius="@dimen/user_image_size_profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:gravity="center_vertical|left"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/text_user_name"
+                <com.lovocal.widgets.views.FlatTextView
+                    android:id="@+id/contact_number_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_xx_small"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="Name"
+                    android:textSize="@dimen/text_big"
+                    android:text="@string/contact_number_title"
                      />
 
-                <TextView
+                <com.lovocal.widgets.views.FlatTextView
                     android:id="@+id/text_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="marquee"
+                    android:maxLines="1"
+                    />
+
+                <com.lovocal.widgets.views.FlatTextView
+                    android:id="@+id/description_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_x_small"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_big"
+                    android:text="@string/description_title"
+                    />
+
+                <com.lovocal.widgets.views.FlatTextView
+                    android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:ellipsize="marquee"
                     android:maxLines="2"
                     />
+
+                <com.lovocal.widgets.views.FlatButton
+                    android:id="@+id/button_edit_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profile"
+                    flatui:theme_flat="@array/sand"
+                    android:layout_margin="3dp"
+                    />
             </LinearLayout>
-        </LinearLayout>
+
+
+
     </RelativeLayout>
 
-
-    <com.lovocal.widgets.views.FlatButton
-        android:id="@+id/button_edit_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit Profile"
-        flatui:theme_flat="@array/sand"
-        android:layout_margin="3dp"
-        />
 
 
 

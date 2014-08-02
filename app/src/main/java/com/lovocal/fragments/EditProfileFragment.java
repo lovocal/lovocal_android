@@ -360,6 +360,7 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
             AppConstants.UserInfo.INSTANCE.setLastName(userResponseModel.user.last_name);
             AppConstants.UserInfo.INSTANCE.setId(userResponseModel.user.id);
             AppConstants.UserInfo.INSTANCE.setProfilePicture(userResponseModel.user.image_url);
+            AppConstants.UserInfo.INSTANCE.setDescription(userResponseModel.user.description);
             AppConstants.UserInfo.INSTANCE.setMobileNumber(userResponseModel.user.mobile_number);
 
             SharedPreferenceHelper.set(R.string.pref_first_name,userResponseModel.user.first_name);
@@ -368,6 +369,7 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
             SharedPreferenceHelper.set(R.string.pref_user_id,userResponseModel.user.id);
             SharedPreferenceHelper.set(R.string.pref_email,userResponseModel.user.email);
             SharedPreferenceHelper.set(R.string.pref_mobile_number,userResponseModel.user.mobile_number);
+            SharedPreferenceHelper.set(R.string.pref_description,userResponseModel.user.description);
 
             userRefresh(true);
             getActivity().finish();

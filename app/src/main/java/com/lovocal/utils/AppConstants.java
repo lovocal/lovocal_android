@@ -17,7 +17,7 @@ public class AppConstants {
     public static final int PROFILE_PAGE = 0;
     public static final int CATEGORY_PAGE = 1;
     public static final int CHAT_PAGE = 2;
-    public static final int DEFAULT_SERVICE_PAGER_NUMBER=1;
+    public static final int DEFAULT_SERVICE_PAGER_NUMBER = 1;
     public static final String AVATOR_PROFILE_NAME = "lavocal_avator_profile_name";
     public static final String SERVICE_IMAGE = "service_image";
 
@@ -216,6 +216,7 @@ public class AppConstants {
         private String mDeviceId;
         private String mFirstName;
         private String mLastName;
+        private String mDescription;
 
         private UserInfo() {
             reset();
@@ -230,6 +231,7 @@ public class AppConstants {
             mFirstName = "";
             mLastName = "";
             mMobileNumber = "";
+            mDescription = "";
         }
 
         public String getMobileNumber() {
@@ -241,6 +243,14 @@ public class AppConstants {
                 mMobileNumber = "";
             } else {
                 mMobileNumber = mobileNumber;
+            }
+        }
+
+        public void setDescription(final String description) {
+            if (description == null) {
+                mDescription = "";
+            } else {
+                mDescription = description;
             }
         }
 

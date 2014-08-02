@@ -31,6 +31,8 @@
     <string name="new_messages">%d new messages!</string>
     <string name="about_me">About me</string>
     <string name="my_services">My Services</string>
+    <string name="contact_number_title">Contact Number</string>
+    <string name="description_title">Description</string>
 
 
     <!-- menu strings -->
