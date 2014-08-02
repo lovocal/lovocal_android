@@ -23,9 +23,9 @@
                 android:id="@+id/image_profile_pic"
                 android:layout_width="@dimen/edit_profile_img_size"
                 android:layout_height="@dimen/edit_profile_img_size"
-                app:borderColor="@color/light_gray"
-                app:borderWidth="2dp"
-                app:cornerRadius="@dimen/edit_profile_img_radius"
+                app:imageBorderColor="@color/light_gray"
+                app:imageBorderWidth="2dp"
+                app:imageCornerRadius="@dimen/edit_profile_img_radius"
                 android:contentDescription="@string/image_profile_pic_description"
                 android:background="@color/transparent"
                 android:alpha="0.35"/>

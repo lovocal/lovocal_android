@@ -26,6 +26,7 @@
     <string name="hint_city">city name</string>
     <string name="hint_country">state country</string>
     <string name="hint_address">enter address</string>
+    <string name="query_tap_message">Press me to write Query</string>
 
     <string name="new_messages">%d new messages!</string>
     <string name="about_me">About me</string>

@@ -92,15 +92,15 @@ public class CircleImageView extends ImageView {
             final TypedArray styledAttrs = context
                             .obtainStyledAttributes(attrs, R.styleable.CircleImageView);
             mCornerRadius = (int) styledAttrs
-                            .getDimension(R.styleable.CircleImageView_cornerRadius, mCornerRadius);
+                            .getDimension(R.styleable.CircleImageView_imageCornerRadius, mCornerRadius);
             mMargin = (int) styledAttrs
                             .getDimension(R.styleable.CircleImageView_margin, mMargin);
             mUseVignette = styledAttrs
                             .getBoolean(R.styleable.CircleImageView_useVignette, mUseVignette);
             mBorderWidth = (int) styledAttrs
-                            .getDimension(R.styleable.CircleImageView_borderWidth, mBorderWidth);
+                            .getDimension(R.styleable.CircleImageView_imageBorderWidth, mBorderWidth);
             mBorderColor = styledAttrs
-                            .getColor(R.styleable.CircleImageView_borderColor, mBorderColor);
+                            .getColor(R.styleable.CircleImageView_imageBorderColor, mBorderColor);
             styledAttrs.recycle();
         }
     }

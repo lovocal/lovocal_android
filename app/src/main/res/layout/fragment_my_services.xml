@@ -4,6 +4,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -31,10 +32,11 @@
             android:verticalSpacing="@dimen/margin_x_small" />
 
     </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
-    <Button
+    <com.lovocal.widgets.views.FlatButton
+        android:id="@+id/button_create_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create service"
-        android:id="@+id/button_create_service"
-        android:layout_gravity="center_horizontal" />
+        android:layout_margin="3dp"
+        />
 </LinearLayout>

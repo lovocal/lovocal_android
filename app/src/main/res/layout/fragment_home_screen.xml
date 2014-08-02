@@ -9,6 +9,7 @@
 
     <com.viewpagerindicator.TitlePageIndicator
         android:id="@+id/indicator"
+        app:footerColor="@color/sand_primary"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         />

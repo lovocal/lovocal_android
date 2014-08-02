@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/global_bg"
@@ -39,9 +40,9 @@
                 android:layout_marginTop="@dimen/margin_xx_small"
                 android:contentDescription="@string/app_name"
                 android:gravity="center_vertical"
-                app:borderColor="@color/vpi__light_theme"
-                app:borderWidth="2dp"
-                app:cornerRadius="@dimen/user_image_size_profile" />
+                app:imageBorderColor="@color/sand_primary"
+                app:imageBorderWidth="2dp"
+                app:imageCornerRadius="@dimen/user_image_size_profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,12 +72,15 @@
     </RelativeLayout>
 
 
-    <Button
+    <com.lovocal.widgets.views.FlatButton
+        android:id="@+id/button_edit_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Edit Profile"
-        android:id="@+id/button_edit_profile"
-        android:layout_gravity="center_horizontal" />
+        flatui:theme_flat="@array/sand"
+        android:layout_margin="3dp"
+        />
+
 
 
 </LinearLayout>

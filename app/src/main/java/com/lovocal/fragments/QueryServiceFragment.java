@@ -89,13 +89,14 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         setHasOptionsMenu(false);
 
-        // load the ChatsFragment
-            final ChatsFragment chatFragment = new ChatsFragment();
-
-            getChildFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.content_chat_details, chatFragment, AppConstants.FragmentTags.CHAT_DETAILS)
-                    .commit();
+        //removed for now
+//        // load the ChatsFragment
+//            final ChatsFragment chatFragment = new ChatsFragment();
+//
+//            getChildFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.content_chat_details, chatFragment, AppConstants.FragmentTags.CHAT_DETAILS)
+//                    .commit();
 
 
         mFormatter = new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.getDefault());

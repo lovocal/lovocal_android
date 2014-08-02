@@ -38,9 +38,9 @@
                 android:layout_marginTop="@dimen/margin_xx_small"
                 android:contentDescription="@string/app_name"
                 android:gravity="center_vertical"
-                app:borderColor="@color/vpi__light_theme"
-                app:borderWidth="2dp"
-                app:cornerRadius="@dimen/user_image_size_profile" />
+                app:imageBorderColor="@color/sand_primary"
+                app:imageBorderWidth="2dp"
+                app:imageCornerRadius="@dimen/user_image_size_profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
