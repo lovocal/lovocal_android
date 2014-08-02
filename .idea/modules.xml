@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/libraries/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/libraries/ViewPagerIndicator/ViewPagerIndicator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yelocity.iml" filepath="$PROJECT_DIR$/Yelocity.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lovocal_android.iml" filepath="$PROJECT_DIR$/lovocal_android.iml" />
     </modules>
   </component>
 </project>

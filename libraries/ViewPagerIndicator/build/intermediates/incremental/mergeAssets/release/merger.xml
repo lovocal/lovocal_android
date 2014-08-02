@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/assets" />
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/release/assets" />
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/release/assets" />
     </dataSet>
 
 </merger>

@@ -2,114 +2,114 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res" >
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res" >
             <file
                 name="vpi__dark_theme"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/color/vpi__dark_theme.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/color/vpi__dark_theme.xml"
                 qualifiers=""
                 type="color" />
             <file
                 name="vpi__light_theme"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/color/vpi__light_theme.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/color/vpi__light_theme.xml"
                 qualifiers=""
                 type="color" />
             <file
                 name="vpi__tab_indicator"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable/vpi__tab_indicator.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable/vpi__tab_indicator.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-hdpi/vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-mdpi/vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_focused_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_pressed_holo.9.png"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/drawable-xhdpi/vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/values/vpi__attrs.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/values/vpi__attrs.xml"
                 qualifiers="" >
                 <attr
                     name="centered"
@@ -296,7 +296,7 @@
                 </declare-styleable>
             </file>
             <file
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/values/vpi__colors.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/values/vpi__colors.xml"
                 qualifiers="" >
                 <color name="vpi__bright_foreground_holo_dark" >@color/vpi__background_holo_light
                 </color>
@@ -316,7 +316,7 @@
                 </color>
             </file>
             <file
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/values/vpi__defaults.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/values/vpi__defaults.xml"
                 qualifiers="" >
                 <dimen name="default_circle_indicator_radius" >3dp
                 </dimen>
@@ -416,7 +416,7 @@ true
                 </color>
             </file>
             <file
-                path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/main/res/values/vpi__styles.xml"
+                path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/main/res/values/vpi__styles.xml"
                 qualifiers="" >
 
                 <style
@@ -488,11 +488,11 @@ bold
                 </style>
             </file>
         </source>
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/build/generated/res/rs/release" />
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/build/generated/res/generated/release" />
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/build/generated/res/rs/release" />
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/build/generated/res/generated/release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/Users/anshul1235/Downloads/Yelocity/libraries/ViewPagerIndicator/src/release/res" />
+        <source path="/Users/anshul1235/lovocal_android/libraries/ViewPagerIndicator/src/release/res" />
     </dataSet>
 
 </merger>
