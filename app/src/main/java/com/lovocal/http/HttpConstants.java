@@ -92,6 +92,7 @@ public class HttpConstants {
     public static final String LATLNG = "latlng";
     public static final String RESULT_TYPE = "result_type";
     public static final String KEY = "key";
+    public static final String STREET_ADDRESS = "street_address";
 
 
     //chats

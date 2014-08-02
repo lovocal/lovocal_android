@@ -20,7 +20,6 @@ public class AppConstants {
     public static final int DEFAULT_SERVICE_PAGER_NUMBER=1;
     public static final String AVATOR_PROFILE_NAME = "lavocal_avator_profile_name";
     public static final String SERVICE_IMAGE = "service_image";
-    public static final String GEOCODE_API_KEY = "YOUR GEO CODE API KEY";
 
     public static final String CATEGORY_SEPERATOR = ",";
 
