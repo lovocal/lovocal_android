@@ -39,6 +39,7 @@
                     android:textStyle="bold"
                     android:ellipsize="end"
                     android:singleLine="true"
+                    app:theme_flat="@array/sand"
                     android:textSize="@dimen/text_large"
                     android:text="@string/contact_number_title"
                      />
@@ -53,6 +54,7 @@
 
                 <com.lovocal.widgets.views.FlatTextView
                     android:id="@+id/description_title"
+                    app:theme_flat="@array/sand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_x_small"
