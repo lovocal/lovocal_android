@@ -54,8 +54,8 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
 
     @Override
     public void onAttach(Activity activity) {
-        super.onAttach(activity);
 
+        super.onAttach(activity);
 
         mRestAdapter=((AbstractLavocalActivity) getActivity())
                 .getRestAdapter();
@@ -64,6 +64,7 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
 
         mBus=((AbstractLavocalActivity)getActivity()).getBus();
         mIsAttached=true;
+
     }
 
     /**

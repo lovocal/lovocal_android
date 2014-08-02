@@ -125,13 +125,14 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     @Subscribe
     public void updatePanelOpen(SlidePanelUpdate update)
     {
-        if(update.panelFlag) {
-            mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.deep));
-            mPanelHeader.setText("Send A Broadcast Message");
-        }
-        else{
-            mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.sand));
-            mPanelHeader.setText("Press me to write Query");
+        if(isAttached()) {
+            if (update.panelFlag) {
+                mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.deep));
+                mPanelHeader.setText("Send A Broadcast Message");
+            } else {
+                mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.sand));
+                mPanelHeader.setText("Press me to write Query");
+            }
         }
     }
 
