@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout
+        android:id="@+id/ptr_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_x_small"
+        android:background="@color/global_bg" >
+        <GridView
+            android:id="@+id/grid_services"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_xx_small"
+            android:layout_marginRight="@dimen/margin_xxx_small"
+            android:background="@color/transparent"
+            android:cacheColorHint="@color/transparent"
+            android:gravity="center"
+            android:horizontalSpacing="@dimen/margin_x_small"
+            android:numColumns="@integer/grid_col_count"
+            android:paddingBottom="@dimen/margin_xx_small"
+            android:paddingTop="@dimen/margin_xx_small"
+            android:verticalSpacing="@dimen/margin_x_small" />
+
+    </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
+
+</LinearLayout>
+

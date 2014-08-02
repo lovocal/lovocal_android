@@ -1,0 +1,65 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="ab_height">48dp</dimen>
+    <dimen name="margin_xxxx_small">1dp</dimen>
+    <dimen name="margin_xxx_small">2dp</dimen>
+    <dimen name="margin_xx_small">4dp</dimen>
+    <dimen name="margin_x_small">8dp</dimen>
+    <dimen name="margin_minimum">12dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_huge">32dp</dimen>
+
+
+    <dimen name="imagefeature_width">150dp</dimen>
+
+
+    <dimen name="category_list_height">80dp</dimen>
+    <dimen name="services_list_height">80dp</dimen>
+
+    <dimen name="button_vertical_padding">16dp</dimen>
+    <dimen name="button_horizontal_padding">16dp</dimen>
+    <dimen name="nav_drawer_width">240dp</dimen>
+
+    <dimen name="profile_header_height">72dp</dimen>
+
+    <dimen name="profile_header_img_size">48dp</dimen>
+    <dimen name="edit_profile_img_size">125dp</dimen>
+    <dimen name="edit_profile_img_radius">30dp</dimen>
+
+
+    <dimen name="user_image_border">1dp</dimen>
+    <dimen name="user_image_size_profile">64dp</dimen>
+
+
+    <dimen name="login_user_image_border">3dp</dimen>
+    <dimen name="login_user_image_size_profile">256dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_micro">12sp</dimen>
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_big">20sp</dimen>
+    <dimen name="text_large">22sp</dimen>
+    <dimen name="text_x_large">24sp</dimen>
+    <dimen name="text_xx_large">28sp</dimen>
+
+
+    <dimen name="chats_item_height">80dp</dimen>
+    <dimen name="chat_detail_image_size">50dp</dimen>
+    <dimen name="big_chat_detail_image_size">60dp</dimen>
+    <dimen name="chat_detail_margin">48dp</dimen>
+    <dimen name="big_chat_image_radius">30dp</dimen>
+    <dimen name="book_user_image_border">1dp</dimen>
+    <dimen name="services_image_height">60dp</dimen>
+    <dimen name="services_image_width">60dp</dimen>
+    <dimen name="star_image_height">40dp</dimen>
+    <dimen name="star_image_width">40dp</dimen>
+
+
+
+</resources>

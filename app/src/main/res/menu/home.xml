@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity" >
+    <!-- Group to hide action items when navigation drawer is opened -->
+    <group android:id="@+id/group_hide_on_drawer_open" >
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        />
+    </group>
+</menu>

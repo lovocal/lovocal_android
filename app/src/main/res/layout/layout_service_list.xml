@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/services_list_height"
+        android:layout_margin="@dimen/activity_margin"
+        android:background="@drawable/background_container_drop_shadow">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.lovocal.widgets.CircleImageView
+                android:id="@+id/image_services"
+                android:layout_width="@dimen/services_image_width"
+                android:layout_height="@dimen/services_image_height"
+                android:layout_marginBottom="@dimen/margin_xxx_small"
+                android:layout_marginLeft="@dimen/margin_xx_small"
+                android:layout_marginRight="@dimen/margin_xx_small"
+                android:contentDescription="@string/app_name"
+                android:layout_gravity="center_vertical"
+                app:borderColor="@color/white"
+                app:borderWidth="@dimen/book_user_image_border"
+                app:cornerRadius="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xx_small"
+                android:orientation="vertical">
+
+                <com.lovocal.widgets.TypefacedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/servicename"
+                    app:fontStyle="regular" />
+
+                <com.lovocal.widgets.TypefacedTextView
+                    android:id="@+id/text_service_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xxx_small"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_small"
+                    app:fontStyle="condensed_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <View
+        android:id="@+id/view_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_main_item_overlay" />
+</LinearLayout>

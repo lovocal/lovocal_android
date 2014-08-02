@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:clickable="true"
+    android:descendantFocusability="afterDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <!-- What I want to do is move the chat handle outside the layout,
+    then set the rest of the relative layout at the drag handle.
+     Then in the onCreateView() get a reference to the book detail fragment.
+      If it's visible, I need to set the layout as the drag handle -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_header_height">
+
+
+        <LinearLayout
+            android:id="@+id/container_profile_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal">
+
+            <com.lovocal.widgets.CircleImageView
+                android:id="@+id/image_user"
+                android:layout_width="@dimen/user_image_size_profile"
+                android:layout_height="@dimen/user_image_size_profile"
+                android:layout_marginBottom="@dimen/margin_xx_small"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_marginRight="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/margin_xx_small"
+                android:contentDescription="@string/app_name"
+                android:gravity="center_vertical"
+                app:borderColor="@color/vpi__light_theme"
+                app:borderWidth="2dp"
+                app:cornerRadius="@dimen/user_image_size_profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_xx_small"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Name" />
+
+                <TextView
+                    android:id="@+id/text_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="marquee"
+                    android:maxLines="2" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <android.support.v4.app.FragmentTabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:orientation="horizontal" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager_profile"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </android.support.v4.app.FragmentTabHost>
+
+
+</LinearLayout>
