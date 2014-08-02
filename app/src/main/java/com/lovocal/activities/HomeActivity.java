@@ -156,12 +156,15 @@ public class HomeActivity extends AbstractDrawerActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
-        AppConstants.DeviceInfo.INSTANCE.setLatestLocation(location);
-       // Toast.makeText(getApplicationContext(),location.getLatitude()+"",Toast.LENGTH_SHORT).show();
-        final AbstractLavocalFragment fragment = getCurrentMasterFragment();
 
-        if (fragment instanceof CreateServiceFragment) {
-            ((CreateServiceFragment) fragment).updateLocation(location);
+        if (location.getLatitude() != 0.0) {
+            AppConstants.DeviceInfo.INSTANCE.setLatestLocation(location);
+            // Toast.makeText(getApplicationContext(),location.getLatitude()+"",Toast.LENGTH_SHORT).show();
+            final AbstractLavocalFragment fragment = getCurrentMasterFragment();
+
+            if (fragment instanceof CreateServiceFragment) {
+                ((CreateServiceFragment) fragment).updateLocation(location);
+            }
         }
     }
 }
