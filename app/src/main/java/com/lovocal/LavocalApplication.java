@@ -154,6 +154,7 @@ public class LavocalApplication extends Application {
         UserInfo.INSTANCE.setLastName(SharedPreferenceHelper.getString(R.string.pref_last_name));
         UserInfo.INSTANCE.setMobileNumber(SharedPreferenceHelper.getString(R.string.pref_mobile_number));
         UserInfo.INSTANCE.setDeviceId(SharedPreferenceHelper.getString(R.string.pref_device_id));
+        UserInfo.INSTANCE.setDescription(SharedPreferenceHelper.getString(R.string.pref_description));
 
     }
 

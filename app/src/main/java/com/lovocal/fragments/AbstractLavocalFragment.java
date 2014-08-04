@@ -172,6 +172,15 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
         return !TextUtils.isEmpty(UserInfo.INSTANCE.getMobileNumber());
     }
 
+    protected boolean isVerified() {
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getAuthToken());
+    }
+
+    protected boolean isActivated(){
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getId());
+    }
+
+
     /**
      * for refreshing the user fragment after user login and logout
      */

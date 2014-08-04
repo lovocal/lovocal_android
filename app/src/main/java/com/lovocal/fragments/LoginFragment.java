@@ -45,6 +45,7 @@ public class LoginFragment extends AbstractLavocalFragment implements View.OnCli
     private EditText mMobileNumber;
     private Button mActivateButton;
     private boolean mVerificationSent = false;
+    private boolean mFragmentPaused = false;
     private String TAG = "LoginFragment";
 
     @Override
@@ -143,6 +144,7 @@ public class LoginFragment extends AbstractLavocalFragment implements View.OnCli
             UserInfo.INSTANCE.setId(userResponseModel.user.id);
             UserInfo.INSTANCE.setProfilePicture(userResponseModel.user.image_url);
             UserInfo.INSTANCE.setMobileNumber(userResponseModel.user.mobile_number);
+            UserInfo.INSTANCE.setDescription(userResponseModel.user.description);
             Logger.d(TAG, userResponseModel.user.first_name + "");
 
             SharedPreferenceHelper.set(R.string.pref_first_name, userResponseModel.user.first_name);
@@ -151,6 +153,7 @@ public class LoginFragment extends AbstractLavocalFragment implements View.OnCli
             SharedPreferenceHelper.set(R.string.pref_user_id, userResponseModel.user.id);
             SharedPreferenceHelper.set(R.string.pref_email, userResponseModel.user.email);
             SharedPreferenceHelper.set(R.string.pref_mobile_number, userResponseModel.user.mobile_number);
+            SharedPreferenceHelper.set(R.string.pref_description,userResponseModel.user.description);
 
 
             Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
@@ -175,12 +178,20 @@ public class LoginFragment extends AbstractLavocalFragment implements View.OnCli
                 mBus.post(new RestAdapterUpdate(UserInfo.INSTANCE.getAuthToken()));
 
                 LavocalApplication.startChatService();
-                loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
-                        .instantiate(getActivity(), EditProfileFragment.class
-                                .getName(), args), AppConstants.FragmentTags.LOGIN, true, AppConstants.FragmentTags.EDIT_PROFILE);
 
-                getActivity().setProgressBarIndeterminateVisibility(false);
 
+                if(mFragmentPaused){
+
+                }
+                else {
+
+
+                    loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+                            .instantiate(getActivity(), EditProfileFragment.class
+                                    .getName(), args), AppConstants.FragmentTags.LOGIN, true, AppConstants.FragmentTags.EDIT_PROFILE);
+
+                    getActivity().setProgressBarIndeterminateVisibility(false);
+                }
             }
 
             Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
@@ -192,12 +203,40 @@ public class LoginFragment extends AbstractLavocalFragment implements View.OnCli
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mFragmentPaused=true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mFragmentPaused=false;
+        if(isVerified()){
+            loadHomeScreen();
+        }
+    }
+
+    @Override
     public void failure(RetrofitError error) {
 
         getActivity().setProgressBarIndeterminateVisibility(false);
         mActivateButton.setText(getResources().getString(R.string.activate_tag));
         mActivateButton.setEnabled(true);
         Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * Loads the {@link com.lovocal.fragments.HomeScreenFragment} into the fragment container
+     */
+    public void loadHomeScreen() {
+
+        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+                        .instantiate(getActivity(), HomeScreenFragment.class
+                                .getName(), null), AppConstants.FragmentTags.HOME_SCREEN, false,
+                null
+        );
+
     }
 
 

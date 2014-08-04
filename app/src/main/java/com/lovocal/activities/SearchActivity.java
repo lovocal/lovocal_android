@@ -11,7 +11,7 @@ import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.SearchServiceFragment;
 import com.lovocal.utils.AppConstants;
 
-public class SearchServiceActivity extends AbstractDrawerActivity{
+public class SearchActivity extends AbstractDrawerActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,35 +19,29 @@ public class SearchServiceActivity extends AbstractDrawerActivity{
         setContentView(R.layout.activity_drawer);
         initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
-        if(AppConstants.DeviceInfo.INSTANCE.getLatestLocation().getLatitude()!=0.0){
-            loadSearchScreen();
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Please Enable Location",Toast.LENGTH_LONG).show();
-        }
+            loadHomeScreen();
 
     }
 
     /**
      * Loads the {@link com.lovocal.fragments.HomeScreenFragment} into the fragment container
      */
-    public void loadSearchScreen() {
+    public void loadHomeScreen() {
 
-        String categoryName = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_NAME);
-        String categoryId   = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_ID);
-
-        setActionBarTitle(categoryName);
-
-        Bundle args= new Bundle(2);
-        args.putString(AppConstants.Keys.CATEGORY_NAME,categoryName);
-        args.putString(AppConstants.Keys.CATEGORY_ID,categoryId);
-
-        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
-                        .instantiate(this, SearchServiceFragment.class
-                                .getName(), args), AppConstants.FragmentTags.SEARCH_SERVICE, false,
-                null
-        );
+//        String categoryName = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_NAME);
+//        String categoryId   = getIntent().getExtras().getString(AppConstants.Keys.CATEGORY_ID);
+//
+//        setActionBarTitle(categoryName);
+//
+//        Bundle args= new Bundle(2);
+//        args.putString(AppConstants.Keys.CATEGORY_NAME,categoryName);
+//        args.putString(AppConstants.Keys.CATEGORY_ID,categoryId);
+//
+//        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+//                        .instantiate(this, SearchServiceFragment.class
+//                                .getName(), args), AppConstants.FragmentTags.SEARCH_SERVICE, false,
+//                null
+//        );
 
     }
 

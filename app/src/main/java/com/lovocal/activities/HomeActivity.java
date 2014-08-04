@@ -1,5 +1,6 @@
 package com.lovocal.activities;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,9 @@ import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.ChatDetailsFragment;
 import com.lovocal.fragments.ChatsFragment;
 import com.lovocal.fragments.CreateServiceFragment;
+import com.lovocal.fragments.EditProfileFragment;
 import com.lovocal.fragments.HomeScreenFragment;
+import com.lovocal.fragments.LoginFragment;
 import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.FragmentTags;
 import com.lovocal.utils.GooglePlayClientWrapper;
@@ -43,15 +46,34 @@ public class HomeActivity extends AbstractDrawerActivity implements
             final String action = getIntent().getAction();
 
             if (action == null) {
-                loadHomeScreen();
+
+
+
             } else if (action.equals(AppConstants.ACTION_SHOW_ALL_CHATS)) {
                 loadChatsFragment();
             } else if (action.equals(AppConstants.ACTION_SHOW_CHAT_DETAIL)) {
 
                 loadChatDetailFragment(getIntent().getStringExtra(Keys.CHAT_ID), getIntent()
-                        .getStringExtra(Keys.USER_ID),getIntent().getStringExtra(Keys.MY_ID));
-            } else {
-                loadHomeScreen();
+                        .getStringExtra(Keys.USER_ID), getIntent().getStringExtra(Keys.MY_ID));
+            }
+            else{
+                if(isVerified()) {
+                    loadHomeScreen();
+                }
+
+
+                else if(!isActivated()){
+                    //jump to activate screen
+                    loadLoginFragment();
+                }
+
+
+                else if(!isLoggedIn()){
+                    //jump to Edit Profile Screen
+                    loadEditProfileFragment();
+
+                }
+
             }
 
         }
@@ -71,6 +93,28 @@ public class HomeActivity extends AbstractDrawerActivity implements
                 null
         );
 
+    }
+
+    /** Load the fragment for editing the profile */
+    private void loadEditProfileFragment() {
+
+        Bundle args=new Bundle(1);
+
+        args.putString(AppConstants.Keys.ID, AppConstants.UserInfo.INSTANCE.getId());
+
+        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+                        .instantiate(this, EditProfileFragment.class.getName(),args),
+                AppConstants.FragmentTags.EDIT_PROFILE, false, null
+        );
+    }
+
+    /** Load the fragment for login */
+    private void loadLoginFragment() {
+
+        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+                        .instantiate(this, LoginFragment.class.getName(), getIntent().getExtras()),
+                AppConstants.FragmentTags.LOGIN, false, null
+        );
     }
 
     /**
@@ -143,7 +187,10 @@ public class HomeActivity extends AbstractDrawerActivity implements
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
+            final Intent searchService = new Intent(this,
+                    SearchActivity.class);
+            startActivity(searchService);
             return true;
         }
         return super.onOptionsItemSelected(item);

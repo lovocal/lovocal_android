@@ -276,6 +276,14 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
         return !TextUtils.isEmpty(UserInfo.INSTANCE.getFirstName());
     }
 
+    protected boolean isVerified() {
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getAuthToken());
+    }
+
+    protected boolean isActivated(){
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getId());
+    }
+
 
     @Override
     public void success(Object o, Response response) {

@@ -19,7 +19,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/user_image_size_profile">
+        android:layout_height="@dimen/image_container_height">
 
 
         <LinearLayout

@@ -317,6 +317,10 @@ public class AppConstants {
             mDeviceId = deviceId;
         }
 
+        public String getDescription(){
+            return mDescription;
+        }
+
         public String getAuthHeader() {
 
             if (TextUtils.isEmpty(mAuthHeader)

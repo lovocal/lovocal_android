@@ -88,8 +88,8 @@ public class MyProfileFragment extends AbstractLavocalFragment implements View.O
 
 
 
-        mName.setText(SharedPreferenceHelper.getString(R.string.pref_first_name)+" "+
-                SharedPreferenceHelper.getString(R.string.pref_last_name));
+        mName.setText(AppConstants.UserInfo.INSTANCE.getFirstName()+" "+
+                AppConstants.UserInfo.INSTANCE.getLastName());
 
         Logger.d(TAG,AppConstants.UserInfo.INSTANCE.getProfilePicture());
         Picasso.with(getActivity())

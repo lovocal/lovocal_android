@@ -42,8 +42,8 @@ public class AboutMeFragment extends AbstractLavocalFragment implements View.OnC
         mButtonEditProfile.setOnClickListener(this);
 
 
-        mMobileNumber.setText(SharedPreferenceHelper.getString(R.string.pref_mobile_number));
-        mDescription.setText(SharedPreferenceHelper.getString(R.string.pref_description));
+        mMobileNumber.setText(AppConstants.UserInfo.INSTANCE.getMobileNumber());
+        mDescription.setText(AppConstants.UserInfo.INSTANCE.getDescription());
 
         Logger.d(TAG, AppConstants.UserInfo.INSTANCE.getProfilePicture());
 
