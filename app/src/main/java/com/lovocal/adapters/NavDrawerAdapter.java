@@ -2,6 +2,7 @@
 package com.lovocal.adapters;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.lovocal.R;
+import com.lovocal.activities.AbstractLavocalActivity;
+import com.lovocal.utils.AppConstants;
 
 
 /**
@@ -116,7 +119,9 @@ public class NavDrawerAdapter extends BaseAdapter {
                 view.setTag(R.id.text_nav_item_title, view
                         .findViewById(R.id.text_nav_item_title));
             }
-
+            if(position<2&&TextUtils.isEmpty(AppConstants.UserInfo.INSTANCE.getFirstName())){
+                ((TextView) view.getTag(R.id.text_nav_item_title)).setVisibility(View.GONE);
+            }
             ((TextView) view.getTag(R.id.text_nav_item_title))
                     .setText(title);
         } else if (viewType == VIEW_SECONDARY) {
@@ -130,6 +135,11 @@ public class NavDrawerAdapter extends BaseAdapter {
 
             ((TextView) view.getTag(R.id.text_nav_item_title))
                     .setText(title);
+
+
+            if(position<2&&TextUtils.isEmpty(AppConstants.UserInfo.INSTANCE.getFirstName())){
+                ((TextView) view.getTag(R.id.text_nav_item_title)).setVisibility(View.GONE);
+            }
         }
 
         return view;

@@ -19,7 +19,7 @@
 
 
     <dimen name="category_list_height">80dp</dimen>
-    <dimen name="services_list_height">80dp</dimen>
+    <dimen name="services_list_height">70dp</dimen>
 
     <dimen name="button_vertical_padding">16dp</dimen>
     <dimen name="button_horizontal_padding">16dp</dimen>
@@ -53,9 +53,9 @@
     <dimen name="query_edittext_above_margin">80dp</dimen>
 
 
-    <dimen name="chats_item_height">80dp</dimen>
+    <dimen name="chats_item_height">70dp</dimen>
     <dimen name="chat_detail_image_size">50dp</dimen>
-    <dimen name="big_chat_detail_image_size">60dp</dimen>
+    <dimen name="big_chat_detail_image_size">50dp</dimen>
     <dimen name="chat_detail_margin">48dp</dimen>
     <dimen name="big_chat_image_radius">30dp</dimen>
     <dimen name="book_user_image_border">1dp</dimen>

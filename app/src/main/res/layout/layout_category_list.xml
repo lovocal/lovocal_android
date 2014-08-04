@@ -13,10 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.lovocal.widgets.views.FlatTextView
+        <com.lovocal.widgets.TypefacedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_x_small"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
             android:text="Medium Text"
             android:id="@+id/categoryname"
             android:layout_gravity="center_horizontal|center_vertical" />

@@ -40,6 +40,7 @@ public class AppConstants {
     public static final String ACTION_DISCONNECT_CHAT = "com.lovocal.ACTION_DISCONNECT_CHAT";
     public static final String ACTION_CHAT_BUTTON_CLICKED = "com.lovocal.ACTION_CHAT_BUTTON_CLICKED";
     public static final String ACTION_RECONNECT_CHAT = "com.lovocal.ACTION_RECONNECT_CHAT";
+    public static final String ACTION_USER_INFO_UPDATED   = "com.lovocal.ACTION_USER_INFO_UPDATED";
 
     public static final String CHAT_ID_FORMAT = "%s#%s";
     public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -196,6 +197,7 @@ public class AppConstants {
         public static final int CREATE_SERVICE = 102;
         public static final int GALLERY_INTENT_CALLED = 103;
         public static final int GALLERY_KITKAT_INTENT_CALLED = 104;
+        public static final int HOME = 105;
 
     }
 
@@ -317,7 +319,7 @@ public class AppConstants {
             mDeviceId = deviceId;
         }
 
-        public String getDescription(){
+        public String getDescription() {
             return mDescription;
         }
 

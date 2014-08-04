@@ -44,14 +44,15 @@
         android:orientation="vertical"
         android:paddingLeft="@dimen/margin_medium" >
 
-        <com.lovocal.widgets.views.FlatTextView
+        <com.lovocal.widgets.TypefacedTextView
             android:id="@+id/text_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:gravity="center_vertical|left"
             android:singleLine="true"
-            android:textSize="@dimen/text_large"
+            android:textSize="@dimen/text_medium"
             />
 
         <com.lovocal.widgets.views.FlatTextView
@@ -62,7 +63,7 @@
             android:gravity="center_vertical|left"
             android:singleLine="true"
             android:textColor="@color/dark_gray"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/text_small"
           />
 
         <com.lovocal.widgets.TypefacedTextView
@@ -73,7 +74,7 @@
             android:gravity="center_vertical|left"
             android:singleLine="true"
             android:textColor="@color/dark_gray"
-            android:textSize="@dimen/text_small"
+            android:textSize="@dimen/text_micro"
             app:fontStyle="condensed_regular" />
     </LinearLayout>
     <!--<com.lovocal.widgets.FlipImageView-->

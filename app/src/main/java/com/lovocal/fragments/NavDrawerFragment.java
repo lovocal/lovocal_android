@@ -31,15 +31,14 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
     private static final String TAG = "NavDrawerFragment";
 
 
-
     /**
      * ListView to provide Nav drawer content
      */
-    private ListView                 mListView;
+    private ListView mListView;
     /**
      * Drawer Adapter to provide the list view options
      */
-    private NavDrawerAdapter         mDrawerAdapter;
+    private NavDrawerAdapter mDrawerAdapter;
     /**
      * Callback will be triggered whenever the Nav drawer takes an action.  Use to close the drawer
      * layout
@@ -49,7 +48,7 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
      * Callback for delaying the running of nav drawer actions. This is so that the drawer can be
      * closed without jank
      */
-    private Handler                  mHandler;
+    private Handler mHandler;
 
 
     @Override
@@ -60,8 +59,7 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
 
         mListView = (ListView) inflater.inflate(R.layout.fragment_nav_drawer, container, false);
         mDrawerAdapter = new NavDrawerAdapter(getActivity(), R.array.nav_drawer_primary,
-                                              R.array.nav_drawer_secondary);
-
+                R.array.nav_drawer_secondary);
 
 
         mListView.setAdapter(mDrawerAdapter);
@@ -69,11 +67,6 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
         mListView.setOnItemClickListener(this);
         return mListView;
     }
-
-
-
-
-
 
 
     @Override
@@ -107,52 +100,17 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
 
         switch (position) {
 
-            //Log In
-            case 0: {
-                final Intent loginIntent = new Intent(getActivity(),
-                        AuthActivity.class);
-                startActivityForResult(loginIntent, AppConstants.RequestCodes.LOGIN);
-
-                break;
-
-            }
 
             //logout
-            case 1: {
-
-                AppConstants.UserInfo.INSTANCE.reset();
-
-                SharedPreferenceHelper.set(R.string.pref_auth_token,"");
-                SharedPreferenceHelper.set(R.string.pref_first_name,"");
-                SharedPreferenceHelper.set(R.string.pref_last_name,"");
-                SharedPreferenceHelper.set(R.string.pref_profile_image,"");
-                SharedPreferenceHelper.set(R.string.pref_user_id,"");
-                SharedPreferenceHelper.set(R.string.pref_email,"");
-                SharedPreferenceHelper.set(R.string.pref_mobile_number,"");
-
-                Bundle args=new Bundle(1);
-
-                if(getActivity().getClass()== HomeActivity.class)
-                {
-                    args.putInt(AppConstants.Keys.PAGER_POSITION,AppConstants.PROFILE_PAGE);
-                    loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
-                            .instantiate(getActivity(), HomeScreenFragment.class
-                                    .getName(), args), AppConstants.FragmentTags.LOGIN, false, null);  }
-                else
-                {
-                    userRefresh(true);
-                    getActivity().finish();
-                }
-
-
-
+            case 0: {
+                ((AbstractLavocalActivity)getActivity()).logout();
 
 
                 break;
             }
 
             //editprofile
-            case 2: {
+            case 1: {
                 final Intent editProfileIntent = new Intent(getActivity(),
                         EditProfileActivity.class);
                 startActivityForResult(editProfileIntent, AppConstants.RequestCodes.EDIT_PROFILE);
@@ -191,7 +149,6 @@ public class NavDrawerFragment extends AbstractLavocalFragment implements Adapte
     public static interface INavDrawerActionCallback {
         public void onActionTaken();
     }
-
 
 
 }

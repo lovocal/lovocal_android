@@ -16,7 +16,7 @@ import com.lovocal.utils.Logger;
 
 import java.util.ArrayList;
 
-public class ChatScreenActivity extends AbstractDrawerActivity {
+public class ChatScreenActivity extends AbstractLavocalActivity {
 
     public static final String TAG = "ChatScreenActivity";
 
@@ -24,7 +24,7 @@ public class ChatScreenActivity extends AbstractDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
+        //initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
         Intent intent = getIntent();
 
@@ -133,9 +133,9 @@ public class ChatScreenActivity extends AbstractDrawerActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected boolean isDrawerActionBarToggleEnabled() {
-        return false;
-    }
+//    @Override
+//    protected boolean isDrawerActionBarToggleEnabled() {
+//        return false;
+//    }
 
 }

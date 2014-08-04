@@ -11,13 +11,13 @@ import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.SearchServiceFragment;
 import com.lovocal.utils.AppConstants;
 
-public class SearchActivity extends AbstractDrawerActivity{
+public class SearchActivity extends AbstractLavocalActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
+       // initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
             loadHomeScreen();
 
@@ -58,10 +58,10 @@ public class SearchActivity extends AbstractDrawerActivity{
         return true;
     }
 
-    @Override
-    protected boolean isDrawerActionBarToggleEnabled() {
-        return false;
-    }
+//    @Override
+//    protected boolean isDrawerActionBarToggleEnabled() {
+//        return false;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -69,7 +69,8 @@ public class SearchActivity extends AbstractDrawerActivity{
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.home) {
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

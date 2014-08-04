@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/transparent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,12 +24,12 @@
                 android:id="@+id/image_service_pic"
                 android:layout_width="@dimen/edit_profile_img_size"
                 android:layout_height="@dimen/edit_profile_img_size"
-                app:imageBorderColor="@color/light_gray"
+                app:imageBorderColor="@color/sand_primary"
                 app:imageBorderWidth="2dp"
                 app:imageCornerRadius="@dimen/edit_profile_img_radius"
                 android:contentDescription="@string/image_service_pic_description"
                 android:background="@color/transparent"
-                android:alpha="0.35"/>
+                android:alpha="0.35" />
 
             <ImageView
                 android:layout_width="48dp"
@@ -36,12 +37,13 @@
                 android:background="@color/transparent"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_action_camera_dark"/>
+                android:src="@drawable/ic_action_camera_dark" />
 
         </FrameLayout>
 
 
-        <com.lovocal.widgets.TypefacedEditText
+        <com.lovocal.widgets.views.FlatEditText
+            flatui:fieldStyle="transparent"
             android:id="@+id/text_service_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,10 +53,12 @@
             android:hint="@string/hint_service_name"
             android:singleLine="true"
             android:textSize="@dimen/text_medium"
-            app:fontStyle="regular"/>
+            app:fontStyle="regular" />
 
 
-        <com.lovocal.widgets.TypefacedEditText
+        <com.lovocal.widgets.views.FlatEditText
+            flatui:fieldStyle="transparent"
+            android:layout_marginTop="@dimen/margin_medium"
             android:id="@+id/text_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,9 +71,11 @@
             android:maxLength="140"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/text_medium"
-            app:fontStyle="regular"/>
+            app:fontStyle="regular" />
 
-        <com.lovocal.widgets.TypefacedEditText
+        <com.lovocal.widgets.views.FlatEditText
+            flatui:fieldStyle="transparent"
+            android:layout_marginTop="@dimen/margin_medium"
             android:id="@+id/text_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,14 +83,16 @@
             android:layout_below="@id/text_description"
             android:hint="@string/hint_address"
             android:inputType="textAutoComplete|textCapSentences|textMultiLine"
-            android:lines="2"
+            android:lines="1"
             android:maxLines="4"
             android:maxLength="140"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/text_medium"
-            app:fontStyle="regular"/>
+            app:fontStyle="regular" />
 
-        <com.lovocal.widgets.TypefacedEditText
+        <com.lovocal.widgets.views.FlatEditText
+            flatui:fieldStyle="transparent"
+            android:layout_marginTop="@dimen/margin_medium"
             android:id="@+id/text_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,14 +100,16 @@
             android:layout_below="@id/text_address"
             android:hint="@string/hint_city"
             android:inputType="textAutoComplete|textCapSentences|textMultiLine"
-            android:lines="2"
+            android:lines="1"
             android:maxLines="4"
             android:maxLength="140"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/text_medium"
-            app:fontStyle="regular"/>
+            app:fontStyle="regular" />
 
-        <com.lovocal.widgets.TypefacedEditText
+        <com.lovocal.widgets.views.FlatEditText
+            flatui:fieldStyle="transparent"
+            android:layout_marginTop="@dimen/margin_medium"
             android:id="@+id/text_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,20 +117,21 @@
             android:layout_below="@id/text_city"
             android:hint="@string/hint_country"
             android:inputType="textAutoComplete|textCapSentences|textMultiLine"
-            android:lines="2"
+            android:lines="1"
             android:maxLines="4"
             android:maxLength="140"
             android:textColor="@color/dark_gray"
             android:textSize="@dimen/text_medium"
-            app:fontStyle="regular"/>
+            app:fontStyle="regular" />
 
         <Spinner
             android:id="@+id/categoryspinner"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_margin="@dimen/margin_x_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/container_user_image"
-            android:layout_below="@id/text_country"/>
+            android:layout_below="@id/text_country" />
 
 
     </RelativeLayout>

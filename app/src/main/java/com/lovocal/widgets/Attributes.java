@@ -15,6 +15,8 @@ public class Attributes {
     public static int DEFAULT_THEME = R.array.sand;
     public static int DEFAULT_EDITTEXT_THEME = R.array.dark;
     public static int DEFAULT_TEXT_THEME = R.array.dark;
+    public static int DEFAULT_RADIOBUTTON_THEME = R.array.dark;
+
 
     public static final String DEFAULT_FONT_FAMILY = "roboto";
     public static final String DEFAULT_FONT_WEIGHT = "light";
@@ -26,7 +28,7 @@ public class Attributes {
     public static int DEFAULT_SIZE_DP = 10;
     
     public static int DEFAULT_RADIUS_PX = 8;
-    public static int DEFAULT_BORDER_WIDTH_PX = 4;
+    public static int DEFAULT_BORDER_WIDTH_PX = 1;
     public static int DEFAULT_SIZE_PX = 20;
 
     /**

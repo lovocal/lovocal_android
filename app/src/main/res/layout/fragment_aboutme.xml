@@ -10,8 +10,7 @@
     android:descendantFocusability="afterDescendants"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <!-- What I want to do is move the chat handle outside the layout,
     then set the rest of the relative layout at the drag handle.
@@ -20,60 +19,53 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:orientation="vertical">
 
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.lovocal.widgets.views.FlatTextView
+                android:id="@+id/contact_number_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_medium"
-                android:orientation="vertical" >
+                android:layout_marginTop="@dimen/margin_xx_small"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                app:theme_flat="@array/sand"
+                android:textSize="@dimen/text_large"
+                android:text="@string/contact_number_title" />
 
-                <com.lovocal.widgets.views.FlatTextView
-                    android:id="@+id/contact_number_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_xx_small"
-                    android:textStyle="bold"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    app:theme_flat="@array/sand"
-                    android:textSize="@dimen/text_large"
-                    android:text="@string/contact_number_title"
-                     />
+            <com.lovocal.widgets.views.FlatTextView
+                android:id="@+id/text_mobile_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="1" />
 
-                <com.lovocal.widgets.views.FlatTextView
-                    android:id="@+id/text_mobile_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:maxLines="1"
-                    />
+            <com.lovocal.widgets.views.FlatTextView
+                android:id="@+id/description_title"
+                app:theme_flat="@array/sand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_x_small"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textSize="@dimen/text_large"
+                android:text="@string/description_title" />
 
-                <com.lovocal.widgets.views.FlatTextView
-                    android:id="@+id/description_title"
-                    app:theme_flat="@array/sand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_x_small"
-                    android:textStyle="bold"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textSize="@dimen/text_large"
-                    android:text="@string/description_title"
-                    />
+            <com.lovocal.widgets.views.FlatTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:maxLines="2" />
 
-                <com.lovocal.widgets.views.FlatTextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:maxLines="2"
-                    />
-
-            </LinearLayout>
+        </LinearLayout>
 
 
         <com.lovocal.widgets.views.FlatButton
@@ -84,12 +76,9 @@
             android:layout_marginBottom="@dimen/margin_medium"
             android:text="Edit Profile"
             flatui:theme_flat="@array/sand"
-            android:layout_margin="3dp"
-            />
+            android:layout_margin="3dp" />
 
     </RelativeLayout>
-
-
 
 
 </LinearLayout>

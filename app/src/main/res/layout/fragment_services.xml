@@ -5,16 +5,15 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/global_bg"
     android:orientation="vertical">
 
     <uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout
         android:id="@+id/ptr_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_x_small"
-        android:background="@color/global_bg" >
+        android:layout_height="match_parent"
+       >
         <GridView
             android:id="@+id/grid_services"
             android:layout_width="match_parent"
@@ -25,10 +24,10 @@
             android:cacheColorHint="@color/transparent"
             android:gravity="center"
             android:horizontalSpacing="@dimen/margin_x_small"
-            android:numColumns="@integer/grid_col_count"
+            android:numColumns="@integer/services_grid_col_count"
             android:paddingBottom="@dimen/margin_xx_small"
-            android:paddingTop="@dimen/margin_xx_small"
-            android:verticalSpacing="@dimen/margin_x_small" />
+            android:paddingTop="@dimen/margin_xx_small"/>
+            <!--android:verticalSpacing="@dimen/margin_x_small"-->
 
     </uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout>
 

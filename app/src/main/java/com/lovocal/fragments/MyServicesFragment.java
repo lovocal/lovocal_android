@@ -217,6 +217,7 @@ public class MyServicesFragment extends AbstractLavocalFragment implements DBInt
     public void onDeleteComplete(int taskId, Object cookie, int deleteCount) {
 
         if (taskId == AppConstants.QueryTokens.DELETE_MY_SERVICES) {
+            //
             mApiService.getMyServices(this);
         }
     }

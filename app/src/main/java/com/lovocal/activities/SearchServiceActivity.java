@@ -11,13 +11,13 @@ import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.SearchServiceFragment;
 import com.lovocal.utils.AppConstants;
 
-public class SearchServiceActivity extends AbstractDrawerActivity{
+public class SearchServiceActivity extends AbstractLavocalActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
+       // initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
         if(AppConstants.DeviceInfo.INSTANCE.getLatestLocation().getLatitude()!=0.0){
             loadSearchScreen();
@@ -64,10 +64,10 @@ public class SearchServiceActivity extends AbstractDrawerActivity{
         return true;
     }
 
-    @Override
-    protected boolean isDrawerActionBarToggleEnabled() {
-        return false;
-    }
+//    @Override
+//    protected boolean isDrawerActionBarToggleEnabled() {
+//        return false;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

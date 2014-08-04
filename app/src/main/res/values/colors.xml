@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="global_bg">#fafafa</color>
+    <color name="global_bg">#f7f7f7</color>
     <color name="transparent">#00000000</color>
     <color name="overlay_gray_40p">#66fbbf58</color>
     <color name="shadow">#D3D3D3</color>

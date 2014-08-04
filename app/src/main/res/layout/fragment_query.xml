@@ -37,6 +37,37 @@
 
 
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.lovocal.widgets.views.FlatRadioButton
+                android:id="@+id/radio_unchecked_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#0000"
+                android:text="Rent"
+                android:layout_margin="5dip"
+                flatui:size="20dip"
+                flatui:dotMargin="1dp" />
+
+            <com.lovocal.widgets.views.FlatRadioButton
+                android:id="@+id/radio_checked_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sale"
+                android:background="#0000"
+                android:layout_margin="5dip"
+                flatui:size="20dip"
+                flatui:dotMargin="1dp" />
+
+        </RadioGroup>
+
+
         <com.lovocal.widgets.views.FlatEditText
             android:id="@+id/edit_query"
             android:layout_width="match_parent"
@@ -48,6 +79,28 @@
             android:hint="@string/enter_your_query"
             flatui:theme_flat="@array/dark"
             android:includeFontPadding="true" />
+
+        <com.lovocal.widgets.views.FlatEditText
+            android:id="@+id/edit_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            flatui:fieldStyle="transparent"
+            flatui:borderWidth="1dp"
+            android:layout_margin="5dip"
+            android:gravity="center_horizontal"
+            android:hint="@string/preferred_location"
+            flatui:theme_flat="@array/dark"
+            android:includeFontPadding="true" />
+
+        <Spinner android:id="@+id/budget_spinner"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:layout_width="fill_parent"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/budget_title"
+            android:spinnerMode="dropdown"
+            android:entries="@array/budget_values"
+            />
 
 
         <com.lovocal.widgets.views.FlatButton

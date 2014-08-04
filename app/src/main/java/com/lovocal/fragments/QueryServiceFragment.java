@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.lovocal.R;
 import com.lovocal.activities.AbstractLavocalActivity;
+import com.lovocal.bus.BroadCastSent;
 import com.lovocal.bus.SlidePanelUpdate;
 import com.lovocal.chat.ChatService;
 import com.lovocal.retromodels.request.SendBroadcastChatRequestModel;
@@ -220,6 +221,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     @Override
     public void success(Object o, Response response) {
         getActivity().setProgressBarIndeterminateVisibility(false);
+        mBus.post(new BroadCastSent(true));
         Toast.makeText(getActivity(),"Broadcast sent successfully",Toast.LENGTH_SHORT).show();
 
     }
@@ -230,6 +232,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         //TODO no idea why retrofit is giving error on 200 success response in this call
         //have to research
+        mBus.post(new BroadCastSent(true));
         Toast.makeText(getActivity(),"Broadcast sent",Toast.LENGTH_SHORT).show();
 
     }

@@ -8,13 +8,14 @@ import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.EditProfileFragment;
 import com.lovocal.utils.AppConstants;
 
-public class EditProfileActivity extends AbstractDrawerActivity {
+public class EditProfileActivity extends AbstractLavocalActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
+
+        //initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
 
         if (savedInstanceState == null) {
@@ -42,8 +43,8 @@ public class EditProfileActivity extends AbstractDrawerActivity {
     }
 
 
-    @Override
-    protected boolean isDrawerActionBarToggleEnabled() {
-        return false;
-    }
+//    @Override
+//    protected boolean isDrawerActionBarToggleEnabled() {
+//        return false;
+//    }
 }

@@ -23,7 +23,7 @@ import com.lovocal.utils.AppConstants.FragmentTags;
 import com.lovocal.utils.GooglePlayClientWrapper;
 import com.lovocal.utils.AppConstants.Keys;
 
-public class HomeActivity extends AbstractDrawerActivity implements
+public class HomeActivity extends AbstractLavocalActivity implements
         LocationListener {
 
     /**
@@ -35,11 +35,12 @@ public class HomeActivity extends AbstractDrawerActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
+        //initDrawer(R.id.drawer_layout, R.id.frame_nav_drawer);
 
         mGooglePlayClientWrapper = new GooglePlayClientWrapper(this, this);
 
         setActionBarTitle(R.string.city_name);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
 
         if (savedInstanceState == null) {
 
@@ -47,6 +48,7 @@ public class HomeActivity extends AbstractDrawerActivity implements
 
             if (action == null) {
 
+                loadAppropriateScreen();
 
 
             } else if (action.equals(AppConstants.ACTION_SHOW_ALL_CHATS)) {
@@ -57,24 +59,30 @@ public class HomeActivity extends AbstractDrawerActivity implements
                         .getStringExtra(Keys.USER_ID), getIntent().getStringExtra(Keys.MY_ID));
             }
             else{
-                if(isVerified()) {
-                    loadHomeScreen();
-                }
-
-
-                else if(!isActivated()){
-                    //jump to activate screen
-                    loadLoginFragment();
-                }
-
-
-                else if(!isLoggedIn()){
-                    //jump to Edit Profile Screen
-                    loadEditProfileFragment();
-
-                }
+                loadAppropriateScreen();
 
             }
+
+        }
+
+    }
+
+
+    private void loadAppropriateScreen(){
+        if(isVerified()) {
+            loadHomeScreen();
+        }
+
+
+        else if(!isActivated()){
+            //jump to activate screen
+            loadLoginFragment();
+        }
+
+
+        else if(!isLoggedIn()){
+            //jump to Edit Profile Screen
+            loadEditProfileFragment();
 
         }
 
@@ -174,32 +182,6 @@ public class HomeActivity extends AbstractDrawerActivity implements
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_search) {
-            final Intent searchService = new Intent(this,
-                    SearchActivity.class);
-            startActivity(searchService);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected boolean isDrawerActionBarToggleEnabled() {
-        return true;
-    }
 
     @Override
     public void onLocationChanged(Location location) {
