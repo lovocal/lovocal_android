@@ -18,10 +18,21 @@ import com.lovocal.fragments.CreateServiceFragment;
 import com.lovocal.fragments.EditProfileFragment;
 import com.lovocal.fragments.HomeScreenFragment;
 import com.lovocal.fragments.LoginFragment;
+import com.lovocal.http.HttpConstants;
 import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.FragmentTags;
 import com.lovocal.utils.GooglePlayClientWrapper;
 import com.lovocal.utils.AppConstants.Keys;
+import com.lovocal.utils.SharedPreferenceHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class HomeActivity extends AbstractLavocalActivity implements
         LocationListener {
@@ -195,5 +206,44 @@ public class HomeActivity extends AbstractLavocalActivity implements
                 ((CreateServiceFragment) fragment).updateLocation(location);
             }
         }
+    }
+
+    /**
+     * Informs the referral to server if it exists
+     */
+    private void informReferralToServer() {
+
+        final String referrer = SharedPreferenceHelper
+                .getString(R.string.pref_referrer);
+
+        if (!TextUtils.isEmpty(referrer)) {
+
+            final Map<String, String> params = new HashMap<String, String>(6);
+            params.put(HttpConstants.REFERRAL_ID,referrer);
+            params.put(HttpConstants.DEVICE_ID, AppConstants.UserInfo.INSTANCE.getDeviceId());
+
+            mApiService.postReferrer(params,this);
+
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // the onResume methods of the primary Activities that an app may be launched into.
+        if (AppConstants.DeviceInfo.INSTANCE.isNetworkConnected()) {
+            informReferralToServer();
+        }
+    }
+
+    @Override
+    public void success(Object o, Response response) {
+        SharedPreferenceHelper.removeKeys(this,
+                R.string.pref_referrer);
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
     }
 }

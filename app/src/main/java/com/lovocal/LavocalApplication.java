@@ -13,6 +13,7 @@ import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.UserInfo;
 import com.lovocal.utils.Logger;
 import com.lovocal.utils.SharedPreferenceHelper;
+import com.lovocal.utils.Utils;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -105,8 +106,7 @@ public class LavocalApplication extends Application {
                 })
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
-        AppConstants.DeviceInfo.INSTANCE.setNetworkConnected(true);
-
+        Utils.setupNetworkInfo(this);
         if (AppConstants.DeviceInfo.INSTANCE.isNetworkConnected()) {
             startChatService();
 

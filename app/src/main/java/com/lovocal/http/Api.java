@@ -97,6 +97,9 @@ public interface Api {
     @POST("/chat/user_chat_block")
     void blockUser(@QueryMap Map<String,String> params,Callback<String> cb);
 
+    @POST("/referral")
+    void postReferrer(@QueryMap Map<String,String> params,Callback<String> cb);
+
 
     //All the DELETE apis
 
