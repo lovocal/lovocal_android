@@ -9,6 +9,7 @@ import com.lovocal.retromodels.request.UserDetailsRequestModel;
 import com.lovocal.retromodels.request.UserDetailsWithImageRequestModel;
 import com.lovocal.retromodels.request.UserDetailsWithoutImageRequestModel;
 import com.lovocal.retromodels.request.VerifyUserRequestModel;
+import com.lovocal.retromodels.response.BannerResponseModel;
 import com.lovocal.retromodels.response.CategoryListResponseModel;
 import com.lovocal.retromodels.response.CreateServiceResponseModel;
 import com.lovocal.retromodels.response.CreateUserResponseModel;
@@ -57,6 +58,9 @@ public interface Api {
     //get location from the google geocode api
     @GET("/geocode/json")
     void getMyAddress( @QueryMap Map<String,String> params,Callback<GoogleGeocodeResponse> cb);
+
+    @GET("/banners")
+    void getBanners(Callback<BannerResponseModel> cb);
 
 
 
