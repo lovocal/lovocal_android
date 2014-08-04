@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,11 +39,15 @@ import retrofit.client.Response;
 /**
  * Created by anshul1235 on 15/07/14.
  */
-public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener,ServiceConnection,Callback
-{
+public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener, ServiceConnection, Callback {
 
-    private  EditText                   mEditQuery;
-    private  Button                     mBroadcastButton;
+    private EditText mEditQuery, mLocationArea;
+
+    private RadioButton mSaleRadio,mRentRadio;
+
+    private Spinner mBudget;
+
+    private Button mBroadcastButton;
 
     private ChatService mChatService;
 
@@ -54,9 +60,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     /**
      * holds the category id
      */
-    private String      mCategoryId;
-
-
+    private String mCategoryId;
 
 
     @Override
@@ -69,15 +73,13 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         final Bundle extras = getArguments();
 
-        if(savedInstanceState==null) {
+        if (savedInstanceState == null) {
             mBus.register(this);
         }
 
         if (extras != null && extras.containsKey(AppConstants.Keys.CATEGORY_ID)) {
-            mCategoryId=extras.getString(AppConstants.Keys.CATEGORY_ID);
-        }
-        else
-        {
+            mCategoryId = extras.getString(AppConstants.Keys.CATEGORY_ID);
+        } else {
             //Should not happen
         }
 
@@ -103,10 +105,19 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         mFormatter = new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.getDefault());
 
-        mPanelHeader=(FlatButton)contentView.findViewById(R.id.panel_header);
+        mPanelHeader = (FlatButton) contentView.findViewById(R.id.panel_header);
 
-        mEditQuery=(EditText)contentView.findViewById(R.id.edit_query);
-        mBroadcastButton=(Button)contentView.findViewById(R.id.button_broadcast);
+        mEditQuery = (EditText) contentView.findViewById(R.id.edit_query);
+
+        mLocationArea = (EditText) contentView.findViewById(R.id.edit_location);
+
+        mSaleRadio = (RadioButton) contentView.findViewById(R.id.radio_sale);
+
+        mRentRadio = (RadioButton) contentView.findViewById(R.id.radio_rent);
+
+        mBudget = (Spinner) contentView.findViewById(R.id.budget_spinner);
+
+        mBroadcastButton = (Button) contentView.findViewById(R.id.button_broadcast);
         mBroadcastButton.setOnClickListener(this);
 
 
@@ -124,9 +135,8 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     }
 
     @Subscribe
-    public void updatePanelOpen(SlidePanelUpdate update)
-    {
-        if(isAttached()) {
+    public void updatePanelOpen(SlidePanelUpdate update) {
+        if (isAttached()) {
             if (update.panelFlag) {
                 mPanelHeader.getAttributes().setColors(getResources().getIntArray(R.array.deep));
                 mPanelHeader.setText("Send A Broadcast Message");
@@ -160,11 +170,37 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.button_broadcast) {
-            if (sendChatMessage(mEditQuery.getText().toString())) {
+
+
+            String propertyType;
+            if(mRentRadio.isChecked()){
+                propertyType=mRentRadio.getText().toString();
+            }
+            else{
+                propertyType=mSaleRadio.getText().toString();
+            }
+
+            //to prevent the hint
+            String budget="";
+            if(mBudget.getSelectedItemPosition()!=0){
+                budget= mBudget.getSelectedItem().toString();
+            }
+
+            String message = formatBroadcastMessage(propertyType,mLocationArea.getText().toString(),
+                    budget,mEditQuery.getText().toString());
+            if (sendChatMessage(message)) {
                 mEditQuery.setText(null);
+                mLocationArea.setText(null);
+                mBudget.setSelection(0);
             } else {
             }
         }
+    }
+
+    private String formatBroadcastMessage(String propertyType,String location,String budget,String query){
+
+    return "Searching for "+ propertyType + " in " + location + " budget is between " + budget
+        +" . QUERY : "+query;
     }
 
     /**
@@ -192,18 +228,17 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
      * Send a message to a user
      *
      * @param toCategoryId The Category Id to send the message to
-     * @param message  The message to send
+     * @param message      The message to send
      */
     public void sendBroadcastMessageToCategory(final String toCategoryId, final String message,
-                                               final String timeSentAt,final Location location) {
+                                               final String timeSentAt, final Location location) {
 
         if (!isLoggedIn()) {
             return;
         }
 
 
-
-        SendBroadcastChatRequestModel broadcastChatRequestModel=new SendBroadcastChatRequestModel();
+        SendBroadcastChatRequestModel broadcastChatRequestModel = new SendBroadcastChatRequestModel();
 
 
         broadcastChatRequestModel.chat.setLatitude(location.getLatitude());
@@ -214,7 +249,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
         broadcastChatRequestModel.chat.setUser_id(AppConstants.UserInfo.INSTANCE.getId());
 
         getActivity().setProgressBarIndeterminateVisibility(true);
-        mApiService.sendBroadCastChat(broadcastChatRequestModel,this);
+        mApiService.sendBroadCastChat(broadcastChatRequestModel, this);
 
     }
 
@@ -222,7 +257,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     public void success(Object o, Response response) {
         getActivity().setProgressBarIndeterminateVisibility(false);
         mBus.post(new BroadCastSent(true));
-        Toast.makeText(getActivity(),"Broadcast sent successfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Broadcast sent successfully", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -233,7 +268,7 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
         //TODO no idea why retrofit is giving error on 200 success response in this call
         //have to research
         mBus.post(new BroadCastSent(true));
-        Toast.makeText(getActivity(),"Broadcast sent",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Broadcast sent", Toast.LENGTH_SHORT).show();
 
     }
 

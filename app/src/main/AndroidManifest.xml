@@ -51,7 +51,8 @@
 
         <activity
             android:name="com.lovocal.activities.SearchServiceActivity"
-            android:label="@string/title_activity_search_service" >
+            android:label="@string/title_activity_search_service"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity

@@ -29,7 +29,7 @@
 
 
     <LinearLayout
-        android:layout_marginTop="@dimen/query_edittext_above_margin"
+        android:layout_marginTop="@dimen/margin_minimum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -44,7 +44,7 @@
             >
 
             <com.lovocal.widgets.views.FlatRadioButton
-                android:id="@+id/radio_unchecked_enabled"
+                android:id="@+id/radio_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -55,7 +55,7 @@
                 flatui:dotMargin="1dp" />
 
             <com.lovocal.widgets.views.FlatRadioButton
-                android:id="@+id/radio_checked_enabled"
+                android:id="@+id/radio_sale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
