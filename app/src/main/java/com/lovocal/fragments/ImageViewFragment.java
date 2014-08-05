@@ -56,26 +56,11 @@ public class ImageViewFragment extends AbstractLavocalFragment{
             mImageUrls=extras.getStringArrayList(AppConstants.Keys.IMAGE_URLS);
         }
 
-        switch(mPosition) {
-            case 0:
-                Picasso.with(getActivity())
-                        .load(mImageUrls.get(mPosition))
-                        .resizeDimen(R.dimen.services_image_width, R.dimen.services_image_height)
-                        .centerCrop().into(mFeatureImage);
-                break;
-            case 1:
-                Picasso.with(getActivity())
-                        .load(mImageUrls.get(mPosition))
-                        .resizeDimen(R.dimen.services_image_width, R.dimen.services_image_height)
-                        .centerCrop().into(mFeatureImage);
-                break;
-            case 2:
-                Picasso.with(getActivity())
-                        .load(mImageUrls.get(mPosition))
-                        .resizeDimen(R.dimen.services_image_width, R.dimen.services_image_height)
-                        .centerCrop().into(mFeatureImage);
-                break;
-        }
+        Picasso.with(getActivity())
+                .load(mImageUrls.get(mPosition))
+                .resizeDimen(R.dimen.imagefeature_width, R.dimen.imagefeature_height)
+                .centerCrop().into(mFeatureImage);
+
 
 
         return contentView;

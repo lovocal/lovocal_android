@@ -76,6 +76,7 @@ public class AppConstants {
         public static final String FINISH_ON_BACK = "finish_on_back";
         public static final String IMAGEFEATURE_POSITION = "imagefeature_position";
         public static final String IMAGE_URLS = "image_urls";
+        public static final String BANNER_COUNT = "banner_count";
         public static final String CHAT_INDEX = "chat_index";
         public static final String LAST_FETCHED_LOCATION = "last_fetched_location";
         public static final String HAS_LOADED_ALL_ITEMS = "has_loaded_all_items";

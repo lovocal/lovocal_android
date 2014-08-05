@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/rent_buy_group"
             >
 
             <com.lovocal.widgets.views.FlatRadioButton
@@ -59,11 +60,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Sale"
+                android:text="Buy"
                 android:background="#0000"
                 android:layout_margin="5dip"
                 flatui:size="20dip"
-                flatui:dotMargin="1dp" />
+                flatui:dotMargin="1dp"
+                android:checked="false" />
 
         </RadioGroup>
 
@@ -92,15 +94,28 @@
             flatui:theme_flat="@array/dark"
             android:includeFontPadding="true" />
 
-        <Spinner android:id="@+id/budget_spinner"
+        <Spinner android:id="@+id/budget_spinner_for_rent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_x_small"
             android:layout_width="fill_parent"
             android:drawSelectorOnTop="true"
             android:prompt="@string/budget_title"
             android:spinnerMode="dropdown"
-            android:entries="@array/budget_values"
+            android:entries="@array/budget_values_rent"
+            android:visibility="gone"
             />
+
+        <Spinner android:id="@+id/budget_spinner_for_buy"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:layout_width="fill_parent"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/budget_title"
+            android:spinnerMode="dropdown"
+            android:entries="@array/budget_values_sale"
+            android:visibility="gone"
+            />
+
 
 
         <com.lovocal.widgets.views.FlatButton

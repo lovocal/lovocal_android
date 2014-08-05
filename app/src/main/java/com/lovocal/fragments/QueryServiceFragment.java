@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lovocal.R;
@@ -39,13 +39,16 @@ import retrofit.client.Response;
 /**
  * Created by anshul1235 on 15/07/14.
  */
-public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener, ServiceConnection, Callback {
+public class QueryServiceFragment extends AbstractLavocalFragment implements View.OnClickListener,
+        ServiceConnection, Callback, RadioGroup.OnCheckedChangeListener {
 
     private EditText mEditQuery, mLocationArea;
 
-    private RadioButton mSaleRadio,mRentRadio;
+    private RadioButton mBuyRadio, mRentRadio;
 
-    private Spinner mBudget;
+    private RadioGroup mBuyRentRadioGroup;
+
+    private Spinner mBudgetRent, mBudgetSale;
 
     private Button mBroadcastButton;
 
@@ -111,12 +114,17 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
         mLocationArea = (EditText) contentView.findViewById(R.id.edit_location);
 
-        mSaleRadio = (RadioButton) contentView.findViewById(R.id.radio_sale);
+        mBuyRadio = (RadioButton) contentView.findViewById(R.id.radio_sale);
 
         mRentRadio = (RadioButton) contentView.findViewById(R.id.radio_rent);
 
-        mBudget = (Spinner) contentView.findViewById(R.id.budget_spinner);
+        mBudgetRent = (Spinner) contentView.findViewById(R.id.budget_spinner_for_rent);
 
+        mBudgetSale = (Spinner) contentView.findViewById(R.id.budget_spinner_for_buy);
+
+        mBuyRentRadioGroup = (RadioGroup) contentView.findViewById(R.id.rent_buy_group);
+
+        mBuyRentRadioGroup.setOnCheckedChangeListener(this);
         mBroadcastButton = (Button) contentView.findViewById(R.id.button_broadcast);
         mBroadcastButton.setOnClickListener(this);
 
@@ -173,34 +181,46 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
 
 
             String propertyType;
-            if(mRentRadio.isChecked()){
-                propertyType=mRentRadio.getText().toString();
-            }
-            else{
-                propertyType=mSaleRadio.getText().toString();
+            if (mRentRadio.isChecked()) {
+                propertyType = mRentRadio.getText().toString();
+            } else {
+                propertyType = mBuyRadio.getText().toString();
             }
 
             //to prevent the hint
-            String budget="";
-            if(mBudget.getSelectedItemPosition()!=0){
-                budget= mBudget.getSelectedItem().toString();
-            }
+            String budget = "";
+            if(mRentRadio.isChecked()) {
+                if (mBudgetRent.getSelectedItemPosition() != 0) {
+                    budget = mBudgetRent.getSelectedItem().toString();
+                }
 
-            String message = formatBroadcastMessage(propertyType,mLocationArea.getText().toString(),
-                    budget,mEditQuery.getText().toString());
+            }
+            else if(mBuyRadio.isChecked()) {
+                if (mBudgetSale.getSelectedItemPosition() != 0) {
+                    budget = mBudgetSale.getSelectedItem().toString();
+                }
+
+            }
+            String message = formatBroadcastMessage(propertyType, mLocationArea.getText().toString(),
+                    budget, mEditQuery.getText().toString());
             if (sendChatMessage(message)) {
                 mEditQuery.setText(null);
                 mLocationArea.setText(null);
-                mBudget.setSelection(0);
+                mBudgetRent.setSelection(0);
+                mBudgetSale.setSelection(0);
+
+                mBudgetRent.setVisibility(View.GONE);
+                mBudgetSale.setVisibility(View.GONE);
+
             } else {
             }
         }
     }
 
-    private String formatBroadcastMessage(String propertyType,String location,String budget,String query){
+    private String formatBroadcastMessage(String propertyType, String location, String budget, String query) {
 
-    return "Searching for "+ propertyType + " in " + location + " budget is between " + budget
-        +" . QUERY : "+query;
+        return "Searching for " + propertyType + " in " + location + " budget is between " + budget
+                + " . QUERY : " + query;
     }
 
     /**
@@ -285,4 +305,17 @@ public class QueryServiceFragment extends AbstractLavocalFragment implements Vie
     }
 
 
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (checkedId == R.id.radio_rent) {
+            mBudgetRent.setVisibility(View.VISIBLE);
+            mBudgetSale.setVisibility(View.GONE);
+
+        } else if (checkedId == R.id.radio_sale) {
+            mBudgetSale.setVisibility(View.VISIBLE);
+            mBudgetRent.setVisibility(View.GONE);
+
+        }
+
+    }
 }

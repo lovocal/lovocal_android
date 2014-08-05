@@ -202,8 +202,9 @@ public class CategoryFragment extends AbstractLavocalFragment implements DBInter
             Logger.d(TAG, "image count = %s", banners.banners.get(0).image_url);
             final ImageFeatureFragment imageFeatureFragment = new ImageFeatureFragment();
 
-            Bundle args=new Bundle(1);
+            Bundle args=new Bundle(2);
             args.putStringArrayList(AppConstants.Keys.IMAGE_URLS,mImages);
+            args.putInt(AppConstants.Keys.BANNER_COUNT,mImages.size());
 
             imageFeatureFragment.setArguments(args);
 

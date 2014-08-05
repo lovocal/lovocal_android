@@ -46,7 +46,7 @@
         <item>Add from Gallery</item>
     </string-array>
 
-    <string-array name="budget_values">
+    <string-array name="budget_values_rent">
         <item>Select Budget</item>
         <item>upto 6k</item>
         <item>6k - 12k</item>
@@ -54,6 +54,16 @@
         <item>18k - 24k</item>
         <item>30k +</item>
     </string-array>
+
+    <string-array name="budget_values_sale">
+        <item>Select Budget</item>
+        <item>upto 10 lacks</item>
+        <item>10 lakhs - 20 lakhs</item>
+        <item>20 lakhs - 40 lakhs</item>
+        <item>40 lakhs - 70 lakhs</item>
+        <item>70 lakhs +</item>
+    </string-array>
+
 
 
 
