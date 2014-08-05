@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.lovocal.R;
 import com.lovocal.retromodels.response.BannerResponseModel;
+import com.lovocal.utils.AppConstants;
 import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.IconPagerAdapter;
@@ -42,10 +43,22 @@ public class ImageFeatureFragment extends AbstractLavocalFragment{
         final View contentView = inflater
                 .inflate(R.layout.fragment_image_feature, container, false);
 
+
+
+
+        Bundle extras=getArguments();
+
+        mImages=extras.getStringArrayList(AppConstants.Keys.IMAGE_URLS);
         mPager = (ViewPager)contentView.findViewById(R.id.pager);
         mCircularIndicator = (CirclePageIndicator)contentView.findViewById(R.id.indicator);
 
-        getBannersFromServer();
+        mAdapter = new ImageSwipeAdapter(getChildFragmentManager());
+        mPager.setAdapter(mAdapter);
+
+        mIndicator = mCircularIndicator;
+        mCircularIndicator.setViewPager(mPager);
+        mCircularIndicator.setSnap(true);
+
 
         return contentView;
 
@@ -88,36 +101,6 @@ public class ImageFeatureFragment extends AbstractLavocalFragment{
 
     }
 
-    private void getBannersFromServer(){
-        mApiService.getBanners(this);
-    }
-
-    @Override
-    public void success(Object o, Response response) {
-        if(o.getClass().equals(BannerResponseModel.class))
-        {
-            BannerResponseModel banners=((BannerResponseModel)o);
-
-            if(banners.image_url!=null) {
-                mImages.addAll(banners.image_url);
 
 
-                mAdapter = new ImageSwipeAdapter(getChildFragmentManager());
-
-
-                mPager.setAdapter(mAdapter);
-
-                mIndicator = mCircularIndicator;
-                mCircularIndicator.setViewPager(mPager);
-                mCircularIndicator.setSnap(true);
-            }
-
-
-            }
-
-        }
-
-    @Override
-    public void failure(RetrofitError error) {
-    }
 }

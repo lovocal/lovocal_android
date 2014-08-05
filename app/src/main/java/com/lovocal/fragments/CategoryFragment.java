@@ -26,10 +26,13 @@ import com.lovocal.data.SQLConstants;
 import com.lovocal.data.SQLiteLoader;
 import com.lovocal.data.TableCategories;
 import com.lovocal.fragments.dialogs.BroadcastMessageDialogFragment;
+import com.lovocal.retromodels.response.BannerResponseModel;
 import com.lovocal.retromodels.response.CategoryListResponseModel;
 import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.Loaders;
 import com.lovocal.utils.Logger;
+
+import java.util.ArrayList;
 
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -81,6 +84,8 @@ public class CategoryFragment extends AbstractLavocalFragment implements DBInter
 
     private boolean mHasLoadedAllItems;
 
+    private ArrayList<String> mImages=new ArrayList<String>();
+
 
     @Override
     public View onCreateView(final LayoutInflater inflater,
@@ -93,12 +98,8 @@ public class CategoryFragment extends AbstractLavocalFragment implements DBInter
 
         // load the ImageFeatureFragment
         if (savedInstanceState == null) {
-            final ImageFeatureFragment imageFeatureFragment = new ImageFeatureFragment();
-
-            getChildFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.content_images, imageFeatureFragment, AppConstants.FragmentTags.CHAT_DETAILS)
-                    .commit();
+            getBannersFromServer();
+           //TODO add to outstate
         }
         else
         {
@@ -125,9 +126,15 @@ public class CategoryFragment extends AbstractLavocalFragment implements DBInter
 
             loadCategories();
 
+
         return contentView;
 
     }
+
+    private void getBannersFromServer(){
+        mApiService.getBanners(this);
+    }
+
 
     @Override
     public void onSaveInstanceState(final Bundle outState) {
@@ -184,6 +191,31 @@ public class CategoryFragment extends AbstractLavocalFragment implements DBInter
             }
 
         }
+        else  if(o.getClass().equals(BannerResponseModel.class))
+        {
+            BannerResponseModel banners=((BannerResponseModel)o);
+
+            for(int i=0;i<banners.banners.size();i++){
+                mImages.add(banners.banners.get(i).image_url);
+            }
+
+            Logger.d(TAG, "image count = %s", banners.banners.get(0).image_url);
+            final ImageFeatureFragment imageFeatureFragment = new ImageFeatureFragment();
+
+            Bundle args=new Bundle(1);
+            args.putStringArrayList(AppConstants.Keys.IMAGE_URLS,mImages);
+
+            imageFeatureFragment.setArguments(args);
+
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_images, imageFeatureFragment, AppConstants.FragmentTags.CHAT_DETAILS)
+                    .commit();
+
+
+        }
+
+
 
     }
 
