@@ -1,73 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
     android:descendantFocusability="afterDescendants"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:background="@color/global_bg">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/container_profile_info"
-    android:orientation="horizontal">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/profile_header_height"
-        android:gravity="center"
-        android:text="Press me to write Query"
-        android:textSize="20dp"
-        android:id="@+id/panel_header" />
-
-</LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_profile_info"
+        android:orientation="horizontal">
+
+        <com.lovocal.widgets.views.FlatButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/profile_header_height"
+            android:gravity="center"
+            android:text="@string/query_tap_message"
+            android:textSize="20dp"
+            android:id="@+id/panel_header" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_minimum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
 
-        <EditText
+
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edit_query"
-            android:gravity="center_horizontal"
-            android:hint="@string/enter_your_query"/>
+            android:orientation="horizontal"
+            android:id="@+id/rent_buy_group"
+            >
 
-        <Button
+            <com.lovocal.widgets.views.FlatRadioButton
+                android:id="@+id/radio_rent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#0000"
+                android:text="Rent"
+                android:layout_margin="5dip"
+                flatui:size="20dip"
+                flatui:dotMargin="1dp" />
+
+            <com.lovocal.widgets.views.FlatRadioButton
+                android:id="@+id/radio_sale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Buy"
+                android:background="#0000"
+                android:layout_margin="5dip"
+                flatui:size="20dip"
+                flatui:dotMargin="1dp"
+                android:checked="false" />
+
+        </RadioGroup>
+
+
+        <com.lovocal.widgets.views.FlatEditText
+            android:id="@+id/edit_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            flatui:fieldStyle="transparent"
+            flatui:borderWidth="1dp"
+            android:layout_margin="5dip"
+            android:gravity="center_horizontal"
+            android:hint="@string/enter_your_query"
+            flatui:theme_flat="@array/dark"
+            android:includeFontPadding="true" />
+
+        <com.lovocal.widgets.views.FlatEditText
+            android:id="@+id/edit_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            flatui:fieldStyle="transparent"
+            flatui:borderWidth="1dp"
+            android:layout_margin="5dip"
+            android:gravity="center_horizontal"
+            android:hint="@string/preferred_location"
+            flatui:theme_flat="@array/dark"
+            android:includeFontPadding="true" />
+
+        <Spinner android:id="@+id/budget_spinner_for_rent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:layout_width="fill_parent"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/budget_title"
+            android:spinnerMode="dropdown"
+            android:entries="@array/budget_values_rent"
+            android:visibility="gone"
+            />
+
+        <Spinner android:id="@+id/budget_spinner_for_buy"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x_small"
+            android:layout_width="fill_parent"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/budget_title"
+            android:spinnerMode="dropdown"
+            android:entries="@array/budget_values_sale"
+            android:visibility="gone"
+            />
+
+
+
+        <com.lovocal.widgets.views.FlatButton
+            android:id="@+id/button_broadcast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/broadcast"
-            android:id="@+id/button_broadcast"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center"
+            flatui:theme_flat="@array/sand"
+            android:layout_margin="3dp" />
 
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="@dimen/activity_margin"
-        android:background="@color/default_progress_bar_color"
-        android:gravity="center" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_xx_small"
-        android:text="Your Chats"
-        android:gravity="center"
-        />
 
-    <FrameLayout
-        android:id="@+id/content_chat_details"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparent"
-        android:clickable="true"
-        android:descendantFocusability="afterDescendants"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
+
+    <!--<com.lovocal.widgets.views.FlatTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/margin_xx_small"-->
+        <!--android:text="Your Chats"-->
+        <!--android:gravity="center" />-->
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/content_chat_details"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/transparent"-->
+        <!--android:clickable="true"-->
+        <!--android:descendantFocusability="afterDescendants"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true" />-->
 </LinearLayout>

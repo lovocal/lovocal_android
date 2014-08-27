@@ -12,6 +12,7 @@
     <string name="pref_mobile_number">mobile_number</string>
     <string name="pref_force_user_refetch">user_refetch</string>
     <string name="pref_device_id">device_id</string>
+    <string name="pref_referrer">referrer_id</string>
     <string name="pref_chat_ringtone">pref_chat_ringtone</string>
     <string name="pref_enable_chat_notifications">pref_enable_chat_notifications</string>
     <string name="pref_enable_chat_vibrate">pref_enable_chat_vibrate</string>

@@ -26,10 +26,16 @@
     <string name="hint_city">city name</string>
     <string name="hint_country">state country</string>
     <string name="hint_address">enter address</string>
+    <string name="query_tap_message">Press me to write Query</string>
 
     <string name="new_messages">%d new messages!</string>
     <string name="about_me">About me</string>
     <string name="my_services">My Services</string>
+    <string name="contact_number_title">Contact Number</string>
+    <string name="description_title">Description</string>
+    <string name="budget_title">select your budget</string>
+    <string name="preferred_location">Location</string>
+
 
 
     <!-- menu strings -->
@@ -40,12 +46,32 @@
         <item>Add from Gallery</item>
     </string-array>
 
+    <string-array name="budget_values_rent">
+        <item>Select Budget</item>
+        <item>upto 6k</item>
+        <item>6k - 12k</item>
+        <item>12k - 18k</item>
+        <item>18k - 24k</item>
+        <item>30k +</item>
+    </string-array>
+
+    <string-array name="budget_values_sale">
+        <item>Select Budget</item>
+        <item>upto 10 lacks</item>
+        <item>10 lakhs - 20 lakhs</item>
+        <item>20 lakhs - 40 lakhs</item>
+        <item>40 lakhs - 70 lakhs</item>
+        <item>70 lakhs +</item>
+    </string-array>
+
+
+
+
     <string name="take_picture">Take picture</string>
     <string name="complete_action_using">complete action using..</string>
 
     <!-- Primary options for nav drawer -->
     <string-array name="nav_drawer_primary">
-        <item>Login    </item>
         <item>Logout   </item>
     </string-array>
 
@@ -84,6 +110,7 @@
     <string name="title_activity_chat_screen">Chat</string>
 
 
+
     <string name="sending">&#8230;</string>
     <string name="failed">Failed to send. Tap to retry.</string>
 
@@ -100,6 +127,9 @@
     <string name="tag_barter_type" />
     <string name="tag_resend_on_click" />
 
+
+    <!-- menu strings -->
+    <string name="action_search">search</string>
 
 
 

@@ -31,9 +31,9 @@
         android:layout_marginLeft="@dimen/margin_xxx_small"
         android:contentDescription="@string/app_name"
         android:layout_gravity="center_vertical"
-        app:borderColor="@color/white"
-        app:borderWidth="@dimen/book_user_image_border"
-        app:cornerRadius="10dp"
+        app:imageBorderColor="@color/white"
+        app:imageBorderWidth="@dimen/book_user_image_border"
+        app:imageCornerRadius="10dp"
         />
 
     <LinearLayout
@@ -48,14 +48,14 @@
             android:id="@+id/text_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:gravity="center_vertical|left"
             android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_large"
-            app:fontStyle="regular" />
+            android:textSize="@dimen/text_medium"
+            />
 
-        <com.lovocal.widgets.TypefacedTextView
+        <com.lovocal.widgets.views.FlatTextView
             android:id="@+id/text_chat_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,8 +63,8 @@
             android:gravity="center_vertical|left"
             android:singleLine="true"
             android:textColor="@color/dark_gray"
-            android:textSize="@dimen/text_medium"
-            app:fontStyle="regular" />
+            android:textSize="@dimen/text_small"
+          />
 
         <com.lovocal.widgets.TypefacedTextView
             android:id="@+id/text_chat_time"
@@ -74,7 +74,7 @@
             android:gravity="center_vertical|left"
             android:singleLine="true"
             android:textColor="@color/dark_gray"
-            android:textSize="@dimen/text_small"
+            android:textSize="@dimen/text_micro"
             app:fontStyle="condensed_regular" />
     </LinearLayout>
     <!--<com.lovocal.widgets.FlipImageView-->

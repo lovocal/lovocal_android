@@ -182,14 +182,16 @@ public class MyServicesFragment extends AbstractLavocalFragment implements DBInt
                                 .join(AppConstants.CATEGORY_SEPERATOR, tags));
                     }
                     if (mResponse.service_images.size() > 0) {
-                        values.put(DatabaseColumns.SERVICES_IMAGE, mResponse.service_images.get(0).getImage());
+                        values.put(DatabaseColumns.IMAGE, mResponse.service_images.get(0).getImage());
                     }
 
                     DBInterface
                             .insertAsync(AppConstants.QueryTokens.INSERT_MY_SERVICES, getTaskTag(), null, TableMyServices.NAME, null, values, true, this);
 
                 }
-                loadServices();
+                if(isAttached()) {
+                    loadServices();
+                }
 
             }
 
@@ -215,6 +217,7 @@ public class MyServicesFragment extends AbstractLavocalFragment implements DBInt
     public void onDeleteComplete(int taskId, Object cookie, int deleteCount) {
 
         if (taskId == AppConstants.QueryTokens.DELETE_MY_SERVICES) {
+            //
             mApiService.getMyServices(this);
         }
     }

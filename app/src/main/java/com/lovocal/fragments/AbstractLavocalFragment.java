@@ -54,8 +54,8 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
 
     @Override
     public void onAttach(Activity activity) {
+
         super.onAttach(activity);
-        mIsAttached=true;
 
         mRestAdapter=((AbstractLavocalActivity) getActivity())
                 .getRestAdapter();
@@ -63,6 +63,8 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
         mApiService=((AbstractLavocalActivity)getActivity()).getApiService();
 
         mBus=((AbstractLavocalActivity)getActivity()).getBus();
+        mIsAttached=true;
+
     }
 
     /**
@@ -169,6 +171,15 @@ public abstract class AbstractLavocalFragment extends Fragment implements Callba
     protected boolean isLoggedIn() {
         return !TextUtils.isEmpty(UserInfo.INSTANCE.getMobileNumber());
     }
+
+    protected boolean isVerified() {
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getAuthToken());
+    }
+
+    protected boolean isActivated(){
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getId());
+    }
+
 
     /**
      * for refreshing the user fragment after user login and logout

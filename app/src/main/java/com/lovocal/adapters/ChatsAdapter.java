@@ -62,9 +62,9 @@ public class ChatsAdapter extends CursorAdapter {
 
         // if sender image is empty that means user has sent the chat! but he has not received
         //so we show his image ;)
-        if(cursor.getString(cursor.getColumnIndex(DatabaseColumns.SENDER_IMAGE)).equals("")){
+        if(!cursor.getString(cursor.getColumnIndex(DatabaseColumns.RECEIVER_ID)).equals(AppConstants.UserInfo.INSTANCE.getId())){
             Picasso.with(context)
-                    .load(AppConstants.UserInfo.INSTANCE.getProfilePicture())
+                    .load(cursor.getString(cursor.getColumnIndex(DatabaseColumns.RECEIVER_IMAGE)))
                     .resizeDimen(R.dimen.big_chat_detail_image_size, R.dimen.big_chat_detail_image_size)
                     .centerCrop().into(circleImageView.getTarget());
         }

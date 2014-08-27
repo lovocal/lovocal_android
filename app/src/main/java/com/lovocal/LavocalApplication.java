@@ -13,6 +13,7 @@ import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.UserInfo;
 import com.lovocal.utils.Logger;
 import com.lovocal.utils.SharedPreferenceHelper;
+import com.lovocal.utils.Utils;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
@@ -105,8 +106,7 @@ public class LavocalApplication extends Application {
                 })
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
-        AppConstants.DeviceInfo.INSTANCE.setNetworkConnected(true);
-
+        Utils.setupNetworkInfo(this);
         if (AppConstants.DeviceInfo.INSTANCE.isNetworkConnected()) {
             startChatService();
 
@@ -154,6 +154,7 @@ public class LavocalApplication extends Application {
         UserInfo.INSTANCE.setLastName(SharedPreferenceHelper.getString(R.string.pref_last_name));
         UserInfo.INSTANCE.setMobileNumber(SharedPreferenceHelper.getString(R.string.pref_mobile_number));
         UserInfo.INSTANCE.setDeviceId(SharedPreferenceHelper.getString(R.string.pref_device_id));
+        UserInfo.INSTANCE.setDescription(SharedPreferenceHelper.getString(R.string.pref_description));
 
     }
 

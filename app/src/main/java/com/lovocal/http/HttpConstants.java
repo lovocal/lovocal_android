@@ -92,6 +92,7 @@ public class HttpConstants {
     public static final String LATLNG = "latlng";
     public static final String RESULT_TYPE = "result_type";
     public static final String KEY = "key";
+    public static final String STREET_ADDRESS = "street_address";
 
 
     //chats
@@ -118,6 +119,11 @@ public class HttpConstants {
     public static final String RECEIVER_IMAGE = "receiver_image";
     public static final String RECEIVER_NAME = "receiver_name";
     public static final String CHAT_SERVICE_ID = "chat[service_id]";
+
+    //analytics
+    public static final String REFERRER = "referrer";
+    public static final String REFERRAL_ID = "referral_id";
+    public static final String DEVICE_ID = "device_id";
 
 
 }

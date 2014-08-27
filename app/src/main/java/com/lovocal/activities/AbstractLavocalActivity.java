@@ -2,11 +2,13 @@ package com.lovocal.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
@@ -17,6 +19,11 @@ import android.view.Window;
 
 import com.lovocal.LavocalApplication;
 import com.lovocal.R;
+import com.lovocal.chat.ChatService;
+import com.lovocal.data.DBInterface;
+import com.lovocal.data.TableChatMessages;
+import com.lovocal.data.TableChats;
+import com.lovocal.data.TableMyServices;
 import com.lovocal.fragments.AbstractLavocalFragment;
 import com.lovocal.fragments.FragmentTransition;
 import com.lovocal.http.Api;
@@ -26,7 +33,11 @@ import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.AppConstants.UserInfo;
+import com.lovocal.utils.Logger;
+import com.lovocal.utils.SharedPreferenceHelper;
 import com.lovocal.widgets.TypefaceCache;
 import com.lovocal.widgets.TypefacedSpan;
 import com.squareup.otto.Bus;
@@ -34,7 +45,8 @@ import com.squareup.otto.Bus;
 /**
  * Created by anshul1235 on 14/07/14.
  */
-public  abstract class AbstractLavocalActivity extends ActionBarActivity implements Callback,DialogInterface.OnClickListener{
+public abstract class AbstractLavocalActivity extends ActionBarActivity implements Callback
+        , DialogInterface.OnClickListener, DBInterface.AsyncDbQueryCallback {
 
     private static final String TAG = "BaseLavocalActivity";
 
@@ -42,7 +54,7 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
             | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_USE_LOGO | ActionBar
             .DISPLAY_SHOW_HOME;
 
-    private   ActivityTransition mActivityTransition;
+    private ActivityTransition mActivityTransition;
     /**
      * this holds the reference for the restadapter which we declared in LavocalApplication
      */
@@ -51,13 +63,12 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
     /**
      * this holds the reference for the Otto Bus which we declared in LavocalApplication
      */
-    protected Bus         mBus;
+    protected Bus mBus;
 
     /**
      * this holds the reference for the api service which we declared in LavocalApplication
      */
-    protected Api         mApiService;
-
+    protected Api mApiService;
 
 
     @Override
@@ -70,11 +81,11 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
         mActivityTransition = getClass()
                 .getAnnotation(ActivityTransition.class);
 
-        mRestAdapter=((LavocalApplication) getApplication())
+        mRestAdapter = ((LavocalApplication) getApplication())
                 .getRestAdapter();
-        mBus=((LavocalApplication)getApplication()).getBus();
+        mBus = ((LavocalApplication) getApplication()).getBus();
         mBus.register(this);
-        mApiService=((LavocalApplication)getApplication()).getService(mRestAdapter);
+        mApiService = ((LavocalApplication) getApplication()).getService(mRestAdapter);
 
         if (savedInstanceState == null) {
             if (mActivityTransition != null) {
@@ -121,17 +132,15 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
     }
 
 
-    public RestAdapter getRestAdapter()
-    {
+    public RestAdapter getRestAdapter() {
         return mRestAdapter;
     }
 
-    public Bus getBus()
-    {
+    public Bus getBus() {
         return mBus;
     }
-    public Api getApiService()
-    {
+
+    public Api getApiService() {
         return mApiService;
     }
 
@@ -217,6 +226,7 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
         }
 
     }
+
     /**
      * Helper method to load fragments into layout
      *
@@ -276,6 +286,14 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
         return !TextUtils.isEmpty(UserInfo.INSTANCE.getFirstName());
     }
 
+    protected boolean isVerified() {
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getAuthToken());
+    }
+
+    protected boolean isActivated() {
+        return !TextUtils.isEmpty(UserInfo.INSTANCE.getId());
+    }
+
 
     @Override
     public void success(Object o, Response response) {
@@ -315,5 +333,86 @@ public  abstract class AbstractLavocalActivity extends ActionBarActivity impleme
         if (!handled) {
             super.onBackPressed();
         }
+    }
+
+
+    /**
+     * Disconnects the chat service, clears any local data
+     */
+    public void logout() {
+
+        if (isLoggedIn()) {
+
+            UserInfo.INSTANCE.reset();
+            DBInterface.deleteAsync(AppConstants.QueryTokens.DELETE_CHATS, getTaskTag(), null,
+                    TableChats.NAME, null, null, true,
+                    AbstractLavocalActivity.this);
+            DBInterface.deleteAsync(AppConstants.QueryTokens.DELETE_CHAT_MESSAGES, getTaskTag(), null,
+                    TableChatMessages.NAME, null, null, true,
+                    AbstractLavocalActivity.this);
+
+            DBInterface.deleteAsync(AppConstants.QueryTokens.DELETE_MY_SERVICES, getTaskTag(), null,
+                    TableMyServices.NAME, null, null, true,
+                    AbstractLavocalActivity.this);
+
+            SharedPreferenceHelper
+                    .removeKeys(AbstractLavocalActivity.this, R.string.pref_auth_token,
+                            R.string.pref_email, R.string.pref_description,
+                            R.string.pref_location, R.string.pref_first_name,
+                            R.string.pref_last_name, R.string.pref_user_id,
+                            R.string.pref_profile_image, R.string.pref_mobile_number,
+                            R.string.pref_description);
+            final Intent disconnectChatIntent = new Intent(AbstractLavocalActivity.this,
+                    ChatService.class);
+            disconnectChatIntent.setAction(AppConstants.ACTION_DISCONNECT_CHAT);
+            startService(disconnectChatIntent);
+            LocalBroadcastManager.getInstance(LavocalApplication.getStaticContext())
+                    .sendBroadcast(
+                            new Intent(AppConstants.ACTION_USER_INFO_UPDATED));
+            final Intent homeIntent = new Intent(AbstractLavocalActivity.this,
+                    HomeActivity.class);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+        }
+
+
+    }
+
+    @Override
+    public void onInsertComplete(int taskId, Object cookie, long insertRowId) {
+
+    }
+
+    @Override
+    public void onDeleteComplete(int token, Object cookie, int deleteCount) {
+        switch (token) {
+            case AppConstants.QueryTokens.DELETE_CHAT_MESSAGES: {
+                Logger.v(TAG, "Deleted %d messages", deleteCount);
+                break;
+            }
+
+            case AppConstants.QueryTokens.DELETE_CHATS: {
+                Logger.v(TAG, "Deleted %d chats", deleteCount);
+                break;
+            }
+
+            case AppConstants.QueryTokens.DELETE_MY_SERVICES: {
+                Logger.v(TAG, "Deleted %d services", deleteCount);
+                break;
+            }
+
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onUpdateComplete(int taskId, Object cookie, int updateCount) {
+
+    }
+
+    @Override
+    public void onQueryComplete(int taskId, Object cookie, Cursor cursor) {
+
     }
 }

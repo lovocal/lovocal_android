@@ -80,11 +80,11 @@
     </attr>
 
     <declare-styleable name="CircleImageView">
-        <attr name="cornerRadius" format="dimension" />
+        <attr name="imageCornerRadius" format="dimension" />
         <attr name="margin" format="dimension" />
         <attr name="useVignette" format="boolean" />
-        <attr name="borderWidth" format="dimension" />
-        <attr name="borderColor" format="color" />
+        <attr name="imageBorderWidth" format="dimension" />
+        <attr name="imageBorderColor" format="color" />
     </declare-styleable>
     <declare-styleable name="TypefacedTextView">
         <attr name="fontStyle" />
@@ -101,5 +101,111 @@
     <declare-styleable name="TypefacedCheckBox">
         <attr name="fontStyle" />
     </declare-styleable>
+
+
+    <attr name="theme_flat" format="reference" />
+
+    <attr name="fontFamily" format="string" />
+    <attr name="fontWeight" format="string" />
+    <attr name="fontExtension" format="string" />
+    <attr name="textAppearance" format="integer">
+        <enum name="none" value="0" />
+        <enum name="dark" value="1" />
+        <enum name="light" value="2" />
+    </attr>
+
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="borderWidth" format="dimension" />
+    <attr name="size" format="dimension" />
+
+    <attr name="dotMargin" format="dimension" />
+
+    <!-- FlatButton -->
+    <declare-styleable name="FlatButton">
+        <attr name="theme_flat" />
+        <attr name="fontFamily" />
+        <attr name="fontWeight" />
+        <attr name="fontExtension" />
+        <attr name="textAppearance" />
+        <attr name="cornerRadius" />
+
+        <!-- Defines the height of the border bottom of the button -->
+        <attr name="blockButtonEffectHeight" format="dimension" />
+    </declare-styleable>
+
+    <!-- Flat Check Box -->
+    <declare-styleable name="FlatCheckBox">
+        <attr name="theme_flat" />
+        <attr name="fontFamily" />
+        <attr name="fontWeight" />
+        <attr name="fontExtension" />
+        <attr name="cornerRadius" />
+        <attr name="size" />
+        <attr name="dotMargin" />
+    </declare-styleable>
+
+    <!-- Flat Edit Text -->
+    <declare-styleable name="FlatEditText">
+        <attr name="theme_flat" />
+        <attr name="fontFamily" />
+        <attr name="fontWeight" />
+        <attr name="fontExtension" />
+        <attr name="textAppearance" />
+        <attr name="cornerRadius" />
+        <attr name="borderWidth" />
+        <attr name="fieldStyle" format="integer">
+            <enum name="flat" value="0" />
+            <enum name="box" value="1" />
+            <enum name="transparent" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Flat Radio Button -->
+    <declare-styleable name="FlatRadioButton">
+        <attr name="theme_flat" />
+        <attr name="fontFamily" />
+        <attr name="fontWeight" />
+        <attr name="fontExtension" />
+        <attr name="borderWidth" />
+        <attr name="size" />
+        <attr name="dotMargin" />
+    </declare-styleable>
+
+    <!-- Flat Seek Bar -->
+    <declare-styleable name="FlatSeekBar">
+        <attr name="theme_flat" />
+        <attr name="size" />
+    </declare-styleable>
+
+    <!-- Flat Text View -->
+    <declare-styleable name="FlatTextView">
+        <attr name="theme_flat" />
+        <attr name="fontFamily" />
+        <attr name="fontWeight" />
+        <attr name="fontExtension" />
+        <attr name="cornerRadius" />
+        <attr name="borderWidth" />
+        <attr name="textColor" format="integer">
+            <enum name="darker" value="0" />
+            <enum name="dark" value="1" />
+            <enum name="main" value="2" />
+            <enum name="light" value="3" />
+        </attr>
+        <attr name="backgroundColor" format="integer">
+            <enum name="darker" value="0" />
+            <enum name="dark" value="1" />
+            <enum name="main" value="2" />
+            <enum name="light" value="3" />
+        </attr>
+        <attr name="customBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <!-- Flat Toggle Button -->
+    <declare-styleable name="FlatToggleButton">
+        <attr name="theme_flat" />
+        <attr name="cornerRadius" />
+        <attr name="space" format="dimension" />
+    </declare-styleable>
+
 
 </resources>

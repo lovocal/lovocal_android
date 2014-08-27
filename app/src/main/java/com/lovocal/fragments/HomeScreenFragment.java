@@ -34,6 +34,8 @@ public class HomeScreenFragment extends AbstractLavocalFragment implements ViewP
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container, final Bundle savedInstanceState) {
         init(container, savedInstanceState);
+
+        getActivity().setTitle(R.string.city_name);
         final View contentView = inflater
                 .inflate(R.layout.fragment_home_screen, container, false);
 

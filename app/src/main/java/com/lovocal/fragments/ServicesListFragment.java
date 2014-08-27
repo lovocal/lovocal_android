@@ -262,7 +262,7 @@ public class ServicesListFragment extends AbstractLavocalFragment implements DBI
                     values.put(DatabaseColumns.FACEBOOK_LINK,mResponse.facebook_link);
                     values.put(DatabaseColumns.LINKEDIN_LINK,mResponse.linkedin_link);
                     if(mResponse.service_images.size()>0) {
-                        values.put(DatabaseColumns.SERVICES_IMAGE, mResponse.service_images.get(0).getImage());
+                        values.put(DatabaseColumns.IMAGE, mResponse.service_images.get(0).getImage());
                     }
                     if (mResponse.list_cat_ids.size() > 0) {
                         final String[] tags = new String[mResponse.list_cat_ids.size()];
@@ -415,8 +415,6 @@ public class ServicesListFragment extends AbstractLavocalFragment implements DBI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         mCursor.moveToPosition(position);
-    Toast.makeText(getActivity(),mCursor.getString(mCursor
-            .getColumnIndex(DatabaseColumns.NAME)),Toast.LENGTH_SHORT).show();
 
 
         loadChat(mCursor.getString(mCursor

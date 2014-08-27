@@ -17,10 +17,9 @@ public class AppConstants {
     public static final int PROFILE_PAGE = 0;
     public static final int CATEGORY_PAGE = 1;
     public static final int CHAT_PAGE = 2;
-    public static final int DEFAULT_SERVICE_PAGER_NUMBER=1;
+    public static final int DEFAULT_SERVICE_PAGER_NUMBER = 1;
     public static final String AVATOR_PROFILE_NAME = "lavocal_avator_profile_name";
     public static final String SERVICE_IMAGE = "service_image";
-    public static final String GEOCODE_API_KEY = "YOUR GEO CODE API KEY";
 
     public static final String CATEGORY_SEPERATOR = ",";
 
@@ -41,6 +40,7 @@ public class AppConstants {
     public static final String ACTION_DISCONNECT_CHAT = "com.lovocal.ACTION_DISCONNECT_CHAT";
     public static final String ACTION_CHAT_BUTTON_CLICKED = "com.lovocal.ACTION_CHAT_BUTTON_CLICKED";
     public static final String ACTION_RECONNECT_CHAT = "com.lovocal.ACTION_RECONNECT_CHAT";
+    public static final String ACTION_USER_INFO_UPDATED   = "com.lovocal.ACTION_USER_INFO_UPDATED";
 
     public static final String CHAT_ID_FORMAT = "%s#%s";
     public static final String TIMESTAMP_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -75,12 +75,15 @@ public class AppConstants {
         public static final String FROM_NOTIFICATIONS = "from_notifications";
         public static final String FINISH_ON_BACK = "finish_on_back";
         public static final String IMAGEFEATURE_POSITION = "imagefeature_position";
+        public static final String IMAGE_URLS = "image_urls";
+        public static final String BANNER_COUNT = "banner_count";
         public static final String CHAT_INDEX = "chat_index";
         public static final String LAST_FETCHED_LOCATION = "last_fetched_location";
         public static final String HAS_LOADED_ALL_ITEMS = "has_loaded_all_items";
         public static final String PANEL_OPEN = "panel_open";
         public static final String SERVICE_ID_ARRAY = "service_id_array";
         public static final String CATEGORY_ID_ARRAY = "category_id_array";
+        public static final String SERVICE_IMAGE = "service_image";
 
 
     }
@@ -196,6 +199,7 @@ public class AppConstants {
         public static final int CREATE_SERVICE = 102;
         public static final int GALLERY_INTENT_CALLED = 103;
         public static final int GALLERY_KITKAT_INTENT_CALLED = 104;
+        public static final int HOME = 105;
 
     }
 
@@ -217,6 +221,7 @@ public class AppConstants {
         private String mDeviceId;
         private String mFirstName;
         private String mLastName;
+        private String mDescription;
 
         private UserInfo() {
             reset();
@@ -231,6 +236,7 @@ public class AppConstants {
             mFirstName = "";
             mLastName = "";
             mMobileNumber = "";
+            mDescription = "";
         }
 
         public String getMobileNumber() {
@@ -242,6 +248,14 @@ public class AppConstants {
                 mMobileNumber = "";
             } else {
                 mMobileNumber = mobileNumber;
+            }
+        }
+
+        public void setDescription(final String description) {
+            if (description == null) {
+                mDescription = "";
+            } else {
+                mDescription = description;
             }
         }
 
@@ -305,6 +319,10 @@ public class AppConstants {
 
         public void setDeviceId(final String deviceId) {
             mDeviceId = deviceId;
+        }
+
+        public String getDescription() {
+            return mDescription;
         }
 
         public String getAuthHeader() {

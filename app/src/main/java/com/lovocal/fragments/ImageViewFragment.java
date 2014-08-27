@@ -8,7 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.lovocal.R;
+import com.lovocal.retromodels.response.BannerResponseModel;
 import com.lovocal.utils.AppConstants;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by anshul1235 on 15/07/14.
@@ -16,12 +24,14 @@ import com.lovocal.utils.AppConstants;
 public class ImageViewFragment extends AbstractLavocalFragment{
     private int mPosition;
     private ImageView mFeatureImage;
+    private ArrayList<String> mImageUrls;
 
 
-    public static ImageViewFragment newInstance(int position) {
+    public static ImageViewFragment newInstance(int position,ArrayList<String> image_urls) {
         ImageViewFragment fragment = new ImageViewFragment();
         Bundle args=new Bundle(1);
         args.putInt(AppConstants.Keys.IMAGEFEATURE_POSITION,position);
+        args.putStringArrayList(AppConstants.Keys.IMAGE_URLS,image_urls);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,25 +49,25 @@ public class ImageViewFragment extends AbstractLavocalFragment{
 
         final Bundle extras = getArguments();
 
+
+
         if (extras != null && extras.containsKey(AppConstants.Keys.IMAGEFEATURE_POSITION)) {
             mPosition=extras.getInt(AppConstants.Keys.IMAGEFEATURE_POSITION);
+            mImageUrls=extras.getStringArrayList(AppConstants.Keys.IMAGE_URLS);
         }
 
-        switch(mPosition) {
-            case 0:
-                mFeatureImage.setImageDrawable(getResources().getDrawable(R.drawable.a1));
-                break;
-            case 1:
-                mFeatureImage.setImageDrawable(getResources().getDrawable(R.drawable.a2));
-                break;
-            case 2:
-                mFeatureImage.setImageDrawable(getResources().getDrawable(R.drawable.a3));
-                break;
-        }
+        Picasso.with(getActivity())
+                .load(mImageUrls.get(mPosition))
+                .resizeDimen(R.dimen.imagefeature_width, R.dimen.imagefeature_height)
+                .centerCrop().into(mFeatureImage);
+
+
 
         return contentView;
 
     }
+
+
     @Override
     protected Object getTaskTag() {
         return hashCode();

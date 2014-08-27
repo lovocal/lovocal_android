@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lovocal.R;
+import com.lovocal.bus.BroadCastSent;
 import com.lovocal.bus.SlidePanelUpdate;
 import com.lovocal.utils.AppConstants;
 import com.lovocal.utils.Logger;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.squareup.otto.Subscribe;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
@@ -52,6 +54,7 @@ public class SearchServiceFragment extends AbstractLavocalFragment implements Vi
     public View onCreateView(final LayoutInflater inflater,
                              final ViewGroup container, final Bundle savedInstanceState) {
         init(container, savedInstanceState);
+        setHasOptionsMenu(false);
         final View contentView = inflater
                 .inflate(R.layout.fragment_service_screen, container, false);
 
@@ -65,6 +68,8 @@ public class SearchServiceFragment extends AbstractLavocalFragment implements Vi
         {
             //Should not happen
         }
+
+        mBus.register(this);
 
         mTitles= new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.search_services_titles)));
 
@@ -153,7 +158,9 @@ public class SearchServiceFragment extends AbstractLavocalFragment implements Vi
     public void onPanelExpanded(View view) {
         //panel open post to QueryServiceFragment
         mPanelOpen=true;
-        mBus.post(new SlidePanelUpdate(true));
+        if(isAttached()) {
+            mBus.post(new SlidePanelUpdate(true));
+        }
     }
 
     @Override
@@ -242,6 +249,16 @@ public class SearchServiceFragment extends AbstractLavocalFragment implements Vi
             return true;
         } else {
             return super.onBackPressed();
+        }
+    }
+
+    @Subscribe
+    public void updatePanelOpen(BroadCastSent update)
+    {
+        if(isAttached()) {
+            if (update.closePanel) {
+                mSlidingLayout.collapsePane();
+            }
         }
     }
 

@@ -2,6 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:flatui="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/global_bg">
@@ -16,9 +18,11 @@
 
 
 
-        <EditText
+        <com.lovocal.widgets.views.FlatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            flatui:fieldStyle="transparent"
+            flatui:borderWidth="1dp"
             android:inputType="number"
             android:hint="@string/enter_mobile_number"
             android:layout_margin="@dimen/margin_x_small"
@@ -31,7 +35,7 @@
     </LinearLayout>
 
 
-    <Button
+    <com.lovocal.widgets.views.FlatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/activate_tag"

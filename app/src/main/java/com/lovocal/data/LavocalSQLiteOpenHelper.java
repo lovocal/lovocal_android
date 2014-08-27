@@ -84,6 +84,7 @@ class LavocalSQLiteOpenHelper extends SQLiteOpenHelper {
         TableChats.create(db);
         TableImages.create(db);
         TableMyServices.create(db);
+        TableBanners.create(db);
 
 
         //Create Views
@@ -106,6 +107,7 @@ class LavocalSQLiteOpenHelper extends SQLiteOpenHelper {
         TableChats.upgrade(db, oldVersion, newVersion);
         TableImages.upgrade(db, oldVersion, newVersion);
         TableMyServices.upgrade(db,oldVersion,newVersion);
+        TableBanners.upgrade(db,oldVersion,newVersion);
 
 
         //Upgrade Views

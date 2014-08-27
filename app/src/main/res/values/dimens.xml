@@ -16,16 +16,18 @@
 
 
     <dimen name="imagefeature_width">150dp</dimen>
+    <dimen name="imagefeature_height">50dp</dimen>
+
 
 
     <dimen name="category_list_height">80dp</dimen>
-    <dimen name="services_list_height">80dp</dimen>
+    <dimen name="services_list_height">70dp</dimen>
 
     <dimen name="button_vertical_padding">16dp</dimen>
     <dimen name="button_horizontal_padding">16dp</dimen>
     <dimen name="nav_drawer_width">240dp</dimen>
 
-    <dimen name="profile_header_height">72dp</dimen>
+    <dimen name="profile_header_height">60dp</dimen>
 
     <dimen name="profile_header_img_size">48dp</dimen>
     <dimen name="edit_profile_img_size">125dp</dimen>
@@ -33,7 +35,9 @@
 
 
     <dimen name="user_image_border">1dp</dimen>
-    <dimen name="user_image_size_profile">64dp</dimen>
+    <dimen name="user_image_size_profile">66dp</dimen>
+    <dimen name="image_container_height">72dp</dimen>
+
 
 
     <dimen name="login_user_image_border">3dp</dimen>
@@ -48,10 +52,12 @@
     <dimen name="text_x_large">24sp</dimen>
     <dimen name="text_xx_large">28sp</dimen>
 
+    <dimen name="query_edittext_above_margin">80dp</dimen>
 
-    <dimen name="chats_item_height">80dp</dimen>
+
+    <dimen name="chats_item_height">70dp</dimen>
     <dimen name="chat_detail_image_size">50dp</dimen>
-    <dimen name="big_chat_detail_image_size">60dp</dimen>
+    <dimen name="big_chat_detail_image_size">50dp</dimen>
     <dimen name="chat_detail_margin">48dp</dimen>
     <dimen name="big_chat_image_radius">30dp</dimen>
     <dimen name="book_user_image_border">1dp</dimen>

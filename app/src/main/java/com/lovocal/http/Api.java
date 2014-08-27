@@ -9,6 +9,7 @@ import com.lovocal.retromodels.request.UserDetailsRequestModel;
 import com.lovocal.retromodels.request.UserDetailsWithImageRequestModel;
 import com.lovocal.retromodels.request.UserDetailsWithoutImageRequestModel;
 import com.lovocal.retromodels.request.VerifyUserRequestModel;
+import com.lovocal.retromodels.response.BannerResponseModel;
 import com.lovocal.retromodels.response.CategoryListResponseModel;
 import com.lovocal.retromodels.response.CreateServiceResponseModel;
 import com.lovocal.retromodels.response.CreateUserResponseModel;
@@ -58,6 +59,9 @@ public interface Api {
     @GET("/geocode/json")
     void getMyAddress( @QueryMap Map<String,String> params,Callback<GoogleGeocodeResponse> cb);
 
+    @GET("/banners")
+    void getBanners(Callback<BannerResponseModel> cb);
+
 
 
     // All the PUT apis
@@ -96,6 +100,9 @@ public interface Api {
 
     @POST("/chat/user_chat_block")
     void blockUser(@QueryMap Map<String,String> params,Callback<String> cb);
+
+    @POST("/referral")
+    void postReferrer(@QueryMap Map<String,String> params,Callback<String> cb);
 
 
     //All the DELETE apis

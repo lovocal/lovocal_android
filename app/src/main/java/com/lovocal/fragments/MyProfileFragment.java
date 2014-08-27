@@ -51,8 +51,7 @@ public class MyProfileFragment extends AbstractLavocalFragment implements View.O
 
     public static final String TAG="MyProfileFragment";
     private CircleImageView mProfileImageView;
-    private TextView mFirstName;
-    private TextView mMobileNumber;
+    private TextView mName;
 
     private FragmentTabHost mTabHost;
     private ViewPager mViewPager;
@@ -70,8 +69,7 @@ public class MyProfileFragment extends AbstractLavocalFragment implements View.O
                 .inflate(R.layout.fragment_my_profile, container, false);
 
         mProfileImageView=(CircleImageView)contentView.findViewById(R.id.image_user);
-        mFirstName=(TextView)contentView.findViewById(R.id.text_user_name);
-        mMobileNumber=(TextView)contentView.findViewById(R.id.text_mobile_number);
+        mName=(TextView)contentView.findViewById(R.id.text_user_name);
 
         mTabHost = (FragmentTabHost) contentView.findViewById(android.R.id.tabhost);
         mTabHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
@@ -90,8 +88,8 @@ public class MyProfileFragment extends AbstractLavocalFragment implements View.O
 
 
 
-        mFirstName.setText(SharedPreferenceHelper.getString(R.string.pref_first_name));
-        mMobileNumber.setText(SharedPreferenceHelper.getString(R.string.pref_mobile_number));
+        mName.setText(AppConstants.UserInfo.INSTANCE.getFirstName()+" "+
+                AppConstants.UserInfo.INSTANCE.getLastName());
 
         Logger.d(TAG,AppConstants.UserInfo.INSTANCE.getProfilePicture());
         Picasso.with(getActivity())

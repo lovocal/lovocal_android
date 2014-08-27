@@ -191,8 +191,8 @@ public class CreateServiceFragment extends AbstractLavocalFragment implements Vi
         final Map<String, String> params = new HashMap<String, String>(6);
         params.put(HttpConstants.LATLNG, AppConstants.DeviceInfo.INSTANCE.getLatestLocation().getLatitude()
                 +","+AppConstants.DeviceInfo.INSTANCE.getLatestLocation().getLongitude());
-        params.put(HttpConstants.KEY,AppConstants.GEOCODE_API_KEY);
-        params.put(HttpConstants.RESULT_TYPE,"street_address");
+        params.put(HttpConstants.KEY,getResources().getString(R.string.google_api_key));
+        params.put(HttpConstants.RESULT_TYPE,HttpConstants.STREET_ADDRESS);
         Api service = restAdapter.create(Api.class);
         service.getMyAddress(params,this);
 

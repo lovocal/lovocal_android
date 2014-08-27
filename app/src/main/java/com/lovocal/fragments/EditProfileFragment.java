@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -109,6 +110,7 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
 
         mFirstName.setText(AppConstants.UserInfo.INSTANCE.getFirstName());
         mLastName.setText(AppConstants.UserInfo.INSTANCE.getLastName());
+        mDesciption.setText(AppConstants.UserInfo.INSTANCE.getDescription());
 
         if(AppConstants.UserInfo.INSTANCE.getProfilePicture().equals("")) {
             Picasso.with(getActivity())
@@ -360,6 +362,7 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
             AppConstants.UserInfo.INSTANCE.setLastName(userResponseModel.user.last_name);
             AppConstants.UserInfo.INSTANCE.setId(userResponseModel.user.id);
             AppConstants.UserInfo.INSTANCE.setProfilePicture(userResponseModel.user.image_url);
+            AppConstants.UserInfo.INSTANCE.setDescription(userResponseModel.user.description);
             AppConstants.UserInfo.INSTANCE.setMobileNumber(userResponseModel.user.mobile_number);
 
             SharedPreferenceHelper.set(R.string.pref_first_name,userResponseModel.user.first_name);
@@ -368,9 +371,11 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
             SharedPreferenceHelper.set(R.string.pref_user_id,userResponseModel.user.id);
             SharedPreferenceHelper.set(R.string.pref_email,userResponseModel.user.email);
             SharedPreferenceHelper.set(R.string.pref_mobile_number,userResponseModel.user.mobile_number);
+            SharedPreferenceHelper.set(R.string.pref_description,userResponseModel.user.description);
 
             userRefresh(true);
-            getActivity().finish();
+
+            loadHomeScreen();
 
 
 
@@ -385,5 +390,18 @@ public class EditProfileFragment extends AbstractLavocalFragment implements View
         getActivity().setProgressBarIndeterminateVisibility(false);
 
         Toast.makeText(getActivity(),error.getMessage(),Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * Loads the {@link com.lovocal.fragments.HomeScreenFragment} into the fragment container
+     */
+    public void loadHomeScreen() {
+
+        loadFragment(R.id.frame_content, (AbstractLavocalFragment) Fragment
+                        .instantiate(getActivity(), HomeScreenFragment.class
+                                .getName(), null), AppConstants.FragmentTags.HOME_SCREEN, false,
+                null
+        );
+
     }
 }
